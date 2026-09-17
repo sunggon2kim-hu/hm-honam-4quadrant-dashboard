@@ -1,0 +1,829 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>혼매호남 지점 좌표</title>
+<style>
+:root{
+  color-scheme: light;
+  --surface-1:#fcfcfb; --surface-2:#f4f3ef; --page:#f9f9f7;
+  --text-primary:#0b0b0b; --text-secondary:#52514e; --text-muted:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,0.10);
+  --series-blue:#2a78d6; --series-blue-soft:#cde2fb;
+  --diverge-pos:#2a78d6; --diverge-neg:#e34948; --diverge-mid:#c3c2b7;
+  --good:#0ca30c; --warning:#fab219; --critical:#d03b3b;
+  --good-bg:#e8f6e8; --warning-bg:#fff4de; --critical-bg:#fbe9e9; --neutral-bg:#eeede8;
+  --accent:#2a78d6;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --surface-1:#1a1a19; --surface-2:#232322; --page:#0d0d0d;
+    --text-primary:#ffffff; --text-secondary:#c3c2b7; --text-muted:#898781;
+    --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,0.10);
+    --series-blue:#3987e5; --series-blue-soft:#184f95;
+    --diverge-pos:#3987e5; --diverge-neg:#e66767; --diverge-mid:#57564f;
+    --good:#0ca30c; --warning:#fab219; --critical:#e66767;
+    --good-bg:#123312; --warning-bg:#3a2c0c; --critical-bg:#3a1414; --neutral-bg:#232322;
+    --accent:#3987e5;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --surface-1:#1a1a19; --surface-2:#232322; --page:#0d0d0d;
+  --text-primary:#ffffff; --text-secondary:#c3c2b7; --text-muted:#898781;
+  --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,0.10);
+  --series-blue:#3987e5; --series-blue-soft:#184f95;
+  --diverge-pos:#3987e5; --diverge-neg:#e66767; --diverge-mid:#57564f;
+  --good:#0ca30c; --warning:#fab219; --critical:#e66767;
+  --good-bg:#123312; --warning-bg:#3a2c0c; --critical-bg:#3a1414; --neutral-bg:#232322;
+  --accent:#3987e5;
+}
+*{box-sizing:border-box;}
+body{
+  background:var(--page); color:var(--text-primary);
+  font-family: system-ui, -apple-system, "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  padding: 20px 16px 48px; margin:0;
+  font-variant-numeric: tabular-nums;
+}
+.wrap{max-width:1180px; margin:0 auto; display:flex; flex-direction:column; gap:20px;}
+
+header.top{display:flex; flex-direction:column; gap:6px;}
+header.top h1{font-size:22px; font-weight:800; margin:0; letter-spacing:-0.01em; text-wrap:balance;}
+header.top p{margin:0; color:var(--text-secondary); font-size:13.5px;}
+header.top .badge-row{display:flex; gap:8px; flex-wrap:wrap; margin-top:2px;}
+.chip{font-size:11.5px; padding:3px 9px; border-radius:100px; background:var(--surface-2); color:var(--text-secondary); border:1px solid var(--border);}
+
+.kpi-row{display:grid; grid-template-columns:repeat(5,1fr); gap:10px;}
+@media (max-width:900px){ .kpi-row{grid-template-columns:repeat(2,1fr);} }
+.kpi{
+  background:var(--surface-1); border:1px solid var(--border); border-radius:14px;
+  padding:14px 14px 12px; display:flex; flex-direction:column; gap:4px; min-width:0;
+}
+.kpi .label{font-size:11.5px; color:var(--text-muted); font-weight:600;}
+.kpi .value{font-size:22px; font-weight:800; letter-spacing:-0.01em;}
+.kpi .delta{font-size:12px; font-weight:600;}
+.kpi .delta.down{color:var(--diverge-neg);}
+.kpi .delta.up{color:var(--diverge-pos);}
+.kpi .delta.flat{color:var(--text-muted);}
+
+.panel{
+  background:var(--surface-1); border:1px solid var(--border); border-radius:16px;
+  padding:18px 18px 16px;
+}
+.panel h2{font-size:15px; margin:0 0 2px; font-weight:800;}
+.panel .sub{font-size:12.5px; color:var(--text-secondary); margin:0 0 12px;}
+
+.grid-main{display:grid; grid-template-columns: 1.6fr 1fr; gap:16px;}
+@media (max-width:900px){ .grid-main{grid-template-columns:1fr;} }
+
+.toggle-row{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-bottom:8px;}
+.seg{display:inline-flex; background:var(--surface-2); border-radius:10px; padding:3px; gap:2px; border:1px solid var(--border); max-width:100%; overflow-x:auto;}
+.seg button{
+  border:none; background:transparent; padding:6px 12px; border-radius:8px; font-size:12.5px; font-weight:600;
+  color:var(--text-secondary); cursor:pointer; font-family:inherit;
+}
+.seg button.active{background:var(--surface-1); color:var(--text-primary); box-shadow:0 1px 2px var(--border);}
+
+.legend-scale{display:flex; align-items:center; gap:8px; font-size:11px; color:var(--text-muted);}
+.legend-scale .bar{width:90px; height:8px; border-radius:4px; background:linear-gradient(90deg, var(--diverge-neg), var(--diverge-mid), var(--diverge-pos));}
+
+#chartWrap{position:relative;}
+svg#scatter{width:100%; height:auto; overflow:visible;}
+.axis-label{fill:var(--text-muted); font-size:11px;}
+.axis-tick{fill:var(--text-muted); font-size:10px;}
+.gridline{stroke:var(--grid); stroke-width:1;}
+.meanline{stroke:var(--axis); stroke-width:1.4; stroke-dasharray:4 4;}
+.quad-label{fill:var(--text-muted); font-size:11px; font-weight:700; letter-spacing:0.02em;}
+.dot{stroke:var(--surface-1); stroke-width:1.5; cursor:pointer; transition:r .1s ease;}
+.dot:hover{stroke:var(--text-primary); stroke-width:2;}
+.dot-label{font-size:9px; font-weight:700; fill:var(--text-primary); pointer-events:none;}
+.dot-label-selected{font-size:10.5px; font-weight:900; fill:var(--accent);}
+
+#tooltip{
+  position:absolute; pointer-events:none; background:var(--text-primary); color:var(--surface-1);
+  padding:8px 10px; border-radius:8px; font-size:12px; line-height:1.5; opacity:0; transition:opacity .08s ease;
+  box-shadow:0 4px 14px rgba(0,0,0,0.25); z-index:5; max-width:220px;
+}
+:root[data-theme="dark"] #tooltip, @media (prefers-color-scheme:dark){ }
+#tooltip b{display:block; font-size:12.5px; margin-bottom:2px;}
+#tooltip .tt-row{display:flex; justify-content:space-between; gap:14px; color:var(--surface-2); opacity:.92;}
+
+.quad-cards{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+@media (max-width:520px){ .quad-cards{grid-template-columns:1fr;} }
+.qcard{border-radius:12px; padding:12px 12px 10px; border:1px solid var(--border);}
+.qcard .qn{font-size:20px; font-weight:800;}
+.qcard .qt{font-size:12.5px; font-weight:700; margin-bottom:2px;}
+.qcard .qd{font-size:11px; color:var(--text-secondary); line-height:1.4;}
+.qcard .qstores{margin-top:8px; padding-top:8px; border-top:1px solid var(--border); line-height:1.7;}
+.qcard .qstore{font-size:10.5px; font-weight:600; color:var(--text-secondary);}
+.qcard .qstore:hover{color:var(--accent); text-decoration:underline;}
+.qcard .qstore-selected{color:var(--accent); font-weight:800; text-decoration:underline;}
+.qcard .qstore-sep{font-size:10.5px; color:var(--text-muted);}
+.qcard.good{background:var(--good-bg);}
+.qcard.warning{background:var(--warning-bg);}
+.qcard.critical{background:var(--critical-bg);}
+.qcard.neutral{background:var(--neutral-bg);}
+
+table{width:100%; border-collapse:collapse; font-size:12.5px;}
+th{
+  text-align:right; font-size:11px; color:var(--text-muted); font-weight:700; text-transform:uppercase;
+  letter-spacing:.02em; padding:6px 8px; border-bottom:1px solid var(--border); cursor:pointer; user-select:none;
+  white-space:nowrap;
+}
+th:first-child, td:first-child{text-align:left;}
+th.sorted{color:var(--text-primary);}
+td{padding:7px 8px; border-bottom:1px solid var(--grid); text-align:right; white-space:nowrap;}
+tr:hover td{background:var(--surface-2);}
+.tbl-wrap{overflow-x:auto; margin-top:4px;}
+.tag{display:inline-flex; align-items:center; gap:4px; font-size:11px; font-weight:700; padding:3px 8px; border-radius:100px;}
+.tag.critical{background:var(--critical-bg); color:var(--diverge-neg);}
+.tag.warning{background:var(--warning-bg); color:#8a5a00;}
+.tag.good{background:var(--good-bg); color:var(--good);}
+.tag.neutral{background:var(--neutral-bg); color:var(--text-secondary);}
+:root[data-theme="dark"] .tag.warning, @media (prefers-color-scheme:dark){ .tag.warning{color:var(--warning);} }
+.store-name{font-weight:700; cursor:pointer;}
+.store-name:hover{text-decoration:underline; color:var(--accent);}
+.pos{color:var(--diverge-pos);}
+.neg{color:var(--diverge-neg);}
+
+.share-cell{display:flex; align-items:center; justify-content:flex-end; gap:8px;}
+.share-bar-track{flex:1 1 auto; max-width:110px; height:7px; border-radius:4px; background:var(--surface-2); overflow:hidden;}
+.share-bar-fill{height:100%; background:var(--series-blue); border-radius:4px;}
+.share-pct{width:44px; text-align:right; flex:none;}
+
+tr.selected-row td{background:var(--series-blue-soft);}
+.selected-info{
+  display:flex; flex-direction:column; gap:10px;
+  background:var(--series-blue-soft); border:1px solid var(--border); border-radius:10px;
+  padding:12px 14px; margin:0 0 12px; font-size:12.5px;
+}
+.selected-info .sel-top{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+.selected-info .sel-summary{font-weight:700; font-size:13px;}
+.selected-info .sel-summary b{font-size:15px;}
+.selected-info .sel-clear-all{border:1px solid var(--border); background:var(--surface-1); color:var(--text-secondary); font-size:11.5px; font-weight:700; padding:5px 10px; border-radius:100px; cursor:pointer; font-family:inherit;}
+.selected-info .sel-clear-all:hover{color:var(--text-primary);}
+.sel-chips{display:flex; flex-wrap:wrap; gap:8px;}
+.sel-chip{display:inline-flex; align-items:center; gap:6px; background:var(--surface-1); border:1px solid var(--border); border-radius:100px; padding:4px 6px 4px 10px; font-size:12px; color:var(--text-primary);}
+.sel-chip b{font-weight:800;}
+.sel-chip .sel-chip-pct{color:var(--text-secondary); font-weight:600;}
+.sel-chip-remove{border:none; background:var(--surface-2); color:var(--text-secondary); width:18px; height:18px; border-radius:50%; cursor:pointer; font-size:11px; line-height:1; display:flex; align-items:center; justify-content:center; font-family:inherit; flex:none;}
+.sel-chip-remove:hover{background:var(--critical-bg); color:var(--diverge-neg);}
+
+.trend-row{display:flex; gap:18px; align-items:flex-end; flex-wrap:wrap;}
+.trend-chart{flex:1 1 320px; min-width:260px;}
+.trend-note{flex:1 1 260px; font-size:12.5px; color:var(--text-secondary); line-height:1.6;}
+.trend-note b{color:var(--text-primary);}
+
+.notes{font-size:12px; color:var(--text-secondary); line-height:1.7;}
+.notes ul{margin:6px 0 0; padding-left:18px;}
+.notes li{margin-bottom:4px;}
+
+footer.foot{font-size:11.5px; color:var(--text-muted); text-align:center; padding-top:6px;}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <h1>혼매호남팀 하이마트 지점 좌표</h1>
+    <p>M/S(경쟁력) × 지점별 월평균 총판금액 4사분면으로 27년 방향성 도출을 위한 부진점 선별</p>
+    <div class="badge-row">
+      <span class="chip">분석대상 33개 지점 · 전체 오픈 43개 중</span>
+      <span class="chip">기준: 가전+IT 통합 M/S · 팀 평균 대비</span>
+    </div>
+  </header>
+
+  <section class="panel" style="padding:12px 16px;">
+    <div class="toggle-row" style="margin-bottom:0;">
+      <div style="font-size:12.5px; font-weight:700; color:var(--text-secondary);">기간 선택 (아래 전체 지표에 반영됩니다)</div>
+      <div class="seg" id="periodSeg">
+        <button data-period="avg" class="active">1~8월 평균</button>
+        <button data-period="1">1월</button>
+        <button data-period="2">2월</button>
+        <button data-period="3">3월</button>
+        <button data-period="4">4월</button>
+        <button data-period="5">5월</button>
+        <button data-period="6">6월</button>
+        <button data-period="7">7월</button>
+        <button data-period="8">8월</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="kpi-row" id="kpiRow"></section>
+
+  <section class="panel">
+    <div class="grid-main">
+      <div>
+        <div class="toggle-row">
+          <div>
+            <h2 id="chartTitle">지점별 경쟁력 × 월평균 총판금액</h2>
+            <p class="sub">점을 올리면 상세 지표가 표시됩니다 · 점선은 분석대상 지점 평균 · 지점명은 전체 표시</p>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:6px;">
+            <div class="seg" id="catSeg">
+              <button data-cat="가전+IT" class="active">가전+IT</button>
+              <button data-cat="가전">가전</button>
+              <button data-cat="IT">IT</button>
+            </div>
+            <div class="legend-scale"><span>MS 하락</span><span class="bar"></span><span>MS 상승</span><span style="margin-left:2px;">(전년 동기 대비)</span></div>
+          </div>
+        </div>
+        <div id="chartWrap">
+          <svg id="scatter" viewBox="0 0 680 620"></svg>
+          <div id="tooltip"></div>
+        </div>
+        <p class="sub" id="dataCaveat" style="margin-top:8px;"></p>
+      </div>
+      <div>
+        <h2 style="margin-bottom:10px;">사분면 구성</h2>
+        <div class="quad-cards" id="quadCards"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>우선 관리 대상 (부진점 · 기회점)</h2>
+    <p class="sub" id="tableSub">M/S가 팀 평균 이하인 지점 · 총판금액 큰 순</p>
+    <div class="tbl-wrap">
+      <table id="priorityTable">
+        <thead>
+          <tr>
+            <th data-key="name">지점</th>
+            <th data-key="quadrant">구분</th>
+            <th data-key="ms">M/S(%)</th>
+            <th data-key="ms_yoy_pp">M/S 증감(pp)</th>
+            <th data-key="sales" id="salesHeader">월평균 총판금액</th>
+            <th data-key="sales_yoy_pct">총판 증감(%)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>전체 지점 매출 비중</h2>
+    <p class="sub" id="shareTableSub">분석대상 33개 지점 · 총판금액 큰 순 · 비중 = 선택 기간 내 지점별 총판금액 ÷ 33개 지점 합계</p>
+    <p class="sub" style="margin-top:-6px;">지점명을 클릭하면 여러 지점을 동시에 선택해 총판 비중을 함께 비교할 수 있습니다.</p>
+    <div id="selectedStoreInfo" class="selected-info" style="display:none;"></div>
+    <div class="tbl-wrap">
+      <table id="shareTable">
+        <thead>
+          <tr>
+            <th data-key="name">지점</th>
+            <th style="text-align:right;">순위</th>
+            <th data-key="quadrant">구분</th>
+            <th data-key="sales" id="shareSalesHeader">총판금액</th>
+            <th data-key="sales">매출 비중(%)</th>
+            <th style="text-align:right;">누적 비중(%)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="sub" id="shareCaveat" style="margin-top:8px; margin-bottom:0;"></p>
+  </section>
+
+  <section class="panel">
+    <h2>팀 전체 M/S 추이 (24~26년 1~8월 누적, 동일 기간 비교)</h2>
+    <div class="trend-row">
+      <div class="trend-chart">
+        <svg id="trendSvg" viewBox="0 0 360 190" style="width:100%; height:auto;"></svg>
+      </div>
+      <div class="trend-note">
+        분석 대상 33개 지점을 합산한 팀 전체 M/S(가전+IT, LG÷(LG+경쟁사))는 <b>24년 57.4% → 25년 54.1% → 26년 48.8%</b>로 2년 연속 하락했고, 26년 처음으로 <b>50% 밑으로</b> 내려갔습니다.
+        <br><br>
+        원인은 이 데이터만으로는 확인되지 않습니다. 27년 방향성 수립 시 하락 배경에 대한 별도 확인이 필요합니다.
+      </div>
+    </div>
+  </section>
+
+  <section class="panel notes">
+    <h2 style="margin-bottom:8px;">데이터 참고사항</h2>
+    <ul id="noteList"></ul>
+  </section>
+
+  <footer class="foot">경쟁력.xlsx · 총판실적.xlsx 기준 자동 생성 · 월평균 총판금액 = 26년 1~8월 누적 ÷ 8, 단위는 원본 파일에 표기되어 있지 않아 원본 수치 그대로 표시함</footer>
+</div>
+
+<script>
+const DATA = {"means": {"가전+IT": 48.48073343253459, "가전": 48.534012098151145, "IT": 46.18236226407336}, "sales_mean": 117.9, "stores": [{"name": "경암점", "fullname": "하이마트 경암점", "ms": {"가전+IT": 51.9, "가전": 52.2, "IT": 46.4}, "lg": 823.9, "ss": 762.7, "sales": 81.4, "sales_prev": 80.4, "sales_yoy_pct": 1.3, "ms_prev": 56.2, "ms_yoy_pp": -4.3, "quadrant": "Q4_틈새점", "months": {"1": {"ms": {"가전+IT": 56.7, "가전": 56.7, "IT": 56.8}, "ms_prev": {"가전+IT": 59.6, "가전": 58.5, "IT": 78.2}, "sales": 48.5, "sales_prev": 40.3}, "2": {"ms": {"가전+IT": 52.8, "가전": 54.9, "IT": 36.2}, "ms_prev": {"가전+IT": 48.9, "가전": 50.5, "IT": 33.7}, "sales": 72.1, "sales_prev": 50.9}, "3": {"ms": {"가전+IT": 51.9, "가전": 50.9, "IT": 76.9}, "ms_prev": {"가전+IT": 53.7, "가전": 52.0, "IT": 73.4}, "sales": 62.3, "sales_prev": 54.2}, "4": {"ms": {"가전+IT": 61.6, "가전": 61.0, "IT": 100.0}, "ms_prev": {"가전+IT": 57.5, "가전": 56.2, "IT": 117.7}, "sales": 94.2, "sales_prev": 77.1}, "5": {"ms": {"가전+IT": 57.2, "가전": 56.1, "IT": 100.0}, "ms_prev": {"가전+IT": 52.1, "가전": 51.5, "IT": 65.7}, "sales": 88.6, "sales_prev": 73.9}, "6": {"ms": {"가전+IT": 40.3, "가전": 41.7, "IT": 3.2}, "ms_prev": {"가전+IT": 54.8, "가전": 54.8, "IT": 38.6}, "sales": 80.1, "sales_prev": 59.5}, "7": {"ms": {"가전+IT": 55.5, "가전": 56.2, "IT": 6.9}, "ms_prev": {"가전+IT": 61.6, "가전": 61.3, "IT": 93.9}, "sales": 137.4, "sales_prev": 172.5}, "8": {"ms": {"가전+IT": 44.8, "가전": 45.1, "IT": 33.6}, "ms_prev": {"가전+IT": 68.5, "가전": 68.2, "IT": 77.0}, "sales": 68.3, "sales_prev": 114.9}}, "ms_prev_by_cat": {"가전+IT": 57.1, "가전": 56.6, "IT": 72.3}}, {"name": "광산점", "fullname": "하이마트 광산점", "ms": {"가전+IT": 44.8, "가전": 44.7, "IT": 47.0}, "lg": 1022.1, "ss": 1258.5, "sales": 110.2, "sales_prev": 126.0, "sales_yoy_pct": -12.5, "ms_prev": 48.2, "ms_yoy_pp": -3.3, "quadrant": "Q3_부진점", "months": {"1": {"ms": {"가전+IT": 49.5, "가전": 48.9, "IT": 54.0}, "ms_prev": {"가전+IT": 43.1, "가전": 44.4, "IT": 29.0}, "sales": 97.3, "sales_prev": 116.9}, "2": {"ms": {"가전+IT": 52.6, "가전": 51.2, "IT": 60.4}, "ms_prev": {"가전+IT": 49.3, "가전": 48.1, "IT": 64.3}, "sales": 74.1, "sales_prev": 73.9}, "3": {"ms": {"가전+IT": 46.6, "가전": 47.1, "IT": 40.6}, "ms_prev": {"가전+IT": 46.2, "가전": 46.7, "IT": 42.1}, "sales": 96.8, "sales_prev": 133.8}, "4": {"ms": {"가전+IT": 42.3, "가전": 42.8, "IT": 30.8}, "ms_prev": {"가전+IT": 43.0, "가전": 42.3, "IT": 53.3}, "sales": 98.3, "sales_prev": 132.3}, "5": {"ms": {"가전+IT": 56.4, "가전": 56.9, "IT": 36.3}, "ms_prev": {"가전+IT": 53.6, "가전": 53.1, "IT": 65.6}, "sales": 114.4, "sales_prev": 136.2}, "6": {"ms": {"가전+IT": 28.8, "가전": 29.3, "IT": 15.9}, "ms_prev": {"가전+IT": 58.2, "가전": 57.8, "IT": 66.9}, "sales": 68.8, "sales_prev": 148.7}, "7": {"ms": {"가전+IT": 47.7, "가전": 47.8, "IT": 43.3}, "ms_prev": {"가전+IT": 45.2, "가전": 45.1, "IT": 48.9}, "sales": 192.0, "sales_prev": 149.7}, "8": {"ms": {"가전+IT": 41.9, "가전": 40.9, "IT": 71.7}, "ms_prev": {"가전+IT": 52.3, "가전": 52.2, "IT": 55.0}, "sales": 139.7, "sales_prev": 116.1}}, "ms_prev_by_cat": {"가전+IT": 48.9, "가전": 48.7, "IT": 53.1}}, {"name": "군산롯데마트점", "fullname": "하이마트 군산롯데마트점", "ms": {"가전+IT": 48.5, "가전": 48.5, "IT": 49.0}, "lg": 516.1, "ss": 547.9, "sales": 53.0, "sales_prev": 66.0, "sales_yoy_pct": -19.8, "ms_prev": 54.6, "ms_yoy_pp": -6.1, "quadrant": "Q4_틈새점", "months": {"1": {"ms": {"가전+IT": 44.0, "가전": 50.4, "IT": 27.0}, "ms_prev": {"가전+IT": 61.8, "가전": 69.4, "IT": 17.7}, "sales": 42.5, "sales_prev": 59.9}, "2": {"ms": {"가전+IT": 68.1, "가전": 70.4, "IT": 59.2}, "ms_prev": {"가전+IT": 37.1, "가전": 33.0, "IT": 75.7}, "sales": 63.3, "sales_prev": 36.3}, "3": {"ms": {"가전+IT": 53.6, "가전": 53.6, "IT": 53.3}, "ms_prev": {"가전+IT": 43.4, "가전": 42.6, "IT": 47.0}, "sales": 46.3, "sales_prev": 47.0}, "4": {"ms": {"가전+IT": 48.8, "가전": 45.2, "IT": 96.9}, "ms_prev": {"가전+IT": 46.4, "가전": 45.9, "IT": 55.6}, "sales": 54.6, "sales_prev": 44.4}, "5": {"ms": {"가전+IT": 40.6, "가전": 41.2, "IT": 34.7}, "ms_prev": {"가전+IT": 52.4, "가전": 48.3, "IT": 94.6}, "sales": 51.6, "sales_prev": 73.5}, "6": {"ms": {"가전+IT": 38.5, "가전": 38.7, "IT": 34.7}, "ms_prev": {"가전+IT": 40.9, "가전": 39.8, "IT": 77.7}, "sales": 50.0, "sales_prev": 70.7}, "7": {"ms": {"가전+IT": 51.3, "가전": 50.7, "IT": 70.9}, "ms_prev": {"가전+IT": 55.9, "가전": 55.0, "IT": 94.1}, "sales": 69.7, "sales_prev": 111.3}, "8": {"ms": {"가전+IT": 51.9, "가전": 52.7, "IT": 26.9}, "ms_prev": {"가전+IT": 64.5, "가전": 66.9, "IT": 47.2}, "sales": 45.7, "sales_prev": 85.2}}, "ms_prev_by_cat": {"가전+IT": 50.3, "가전": 50.1, "IT": 63.7}}, {"name": "김제점", "fullname": "하이마트 김제점", "ms": {"가전+IT": 59.4, "가전": 59.8, "IT": 51.0}, "lg": 646.8, "ss": 441.6, "sales": 66.8, "sales_prev": 58.9, "sales_yoy_pct": 13.4, "ms_prev": 51.7, "ms_yoy_pp": 7.7, "quadrant": "Q4_틈새점", "months": {"1": {"ms": {"가전+IT": 44.4, "가전": 39.5, "IT": 83.8}, "ms_prev": {"가전+IT": 48.3, "가전": 54.0, "IT": 9.9}, "sales": 43.5, "sales_prev": 52.1}, "2": {"ms": {"가전+IT": 52.0, "가전": 52.9, "IT": 43.5}, "ms_prev": {"가전+IT": 63.0, "가전": 64.7, "IT": 47.6}, "sales": 48.3, "sales_prev": 30.7}, "3": {"ms": {"가전+IT": 64.9, "가전": 66.7, "IT": 45.1}, "ms_prev": {"가전+IT": 39.0, "가전": 35.6, "IT": 85.9}, "sales": 69.6, "sales_prev": 33.9}, "4": {"ms": {"가전+IT": 48.9, "가전": 48.6, "IT": 57.0}, "ms_prev": {"가전+IT": 43.7, "가전": 43.0, "IT": 57.7}, "sales": 54.7, "sales_prev": 43.8}, "5": {"ms": {"가전+IT": 76.6, "가전": 77.1, "IT": 0.0}, "ms_prev": {"가전+IT": 45.0, "가전": 47.2, "IT": 14.3}, "sales": 71.5, "sales_prev": 53.3}, "6": {"ms": {"가전+IT": 43.7, "가전": 44.9, "IT": 0.0}, "ms_prev": {"가전+IT": 62.7, "가전": 62.9, "IT": 56.6}, "sales": 38.6, "sales_prev": 82.9}, "7": {"ms": {"가전+IT": 62.5, "가전": 62.9, "IT": 39.3}, "ms_prev": {"가전+IT": 60.3, "가전": 60.3, "IT": 59.4}, "sales": 113.8, "sales_prev": 107.8}, "8": {"ms": {"가전+IT": 77.7, "가전": 78.3, "IT": 0.0}, "ms_prev": {"가전+IT": 53.8, "가전": 53.2, "IT": 85.7}, "sales": 94.5, "sales_prev": 66.9}}, "ms_prev_by_cat": {"가전+IT": 52.0, "가전": 52.6, "IT": 52.1}}, {"name": "나운점", "fullname": "하이마트 나운점", "ms": {"가전+IT": 42.3, "가전": 42.2, "IT": 45.7}, "lg": 662.5, "ss": 902.5, "sales": 72.2, "sales_prev": 71.0, "sales_yoy_pct": 1.8, "ms_prev": 42.3, "ms_yoy_pp": 0.0, "quadrant": "Q3_부진점", "months": {"1": {"ms": {"가전+IT": 24.0, "가전": 23.9, "IT": 24.9}, "ms_prev": {"가전+IT": 46.6, "가전": 47.0, "IT": 35.7}, "sales": 59.4, "sales_prev": 48.1}, "2": {"ms": {"가전+IT": 64.1, "가전": 63.9, "IT": 66.1}, "ms_prev": {"가전+IT": 46.2, "가전": 44.2, "IT": 69.2}, "sales": 53.3, "sales_prev": 39.7}, "3": {"ms": {"가전+IT": 31.7, "가전": 31.3, "IT": 46.6}, "ms_prev": {"가전+IT": 42.8, "가전": 41.1, "IT": 78.2}, "sales": 59.6, "sales_prev": 78.4}, "4": {"ms": {"가전+IT": 43.1, "가전": 42.3, "IT": 100.0}, "ms_prev": {"가전+IT": 42.3, "가전": 42.0, "IT": 65.4}, "sales": 49.4, "sales_prev": 69.7}, "5": {"ms": {"가전+IT": 40.4, "가전": 40.3, "IT": 66.9}, "ms_prev": {"가전+IT": 51.9, "가전": 53.1, "IT": 0.0}, "sales": 58.3, "sales_prev": 77.1}, "6": {"ms": {"가전+IT": 25.7, "가전": 25.2, "IT": 41.4}, "ms_prev": {"가전+IT": 35.1, "가전": 34.8, "IT": 86.4}, "sales": 48.6, "sales_prev": 70.5}, "7": {"ms": {"가전+IT": 49.4, "가전": 49.5, "IT": 41.0}, "ms_prev": {"가전+IT": 43.3, "가전": 43.3, "IT": 31.0}, "sales": 136.9, "sales_prev": 86.4}, "8": {"ms": {"가전+IT": 49.3, "가전": 49.9, "IT": 8.8}, "ms_prev": {"가전+IT": 47.7, "가전": 47.5, "IT": 58.9}, "sales": 112.5, "sales_prev": 97.9}}, "ms_prev_by_cat": {"가전+IT": 44.5, "가전": 44.1, "IT": 53.1}}, {"name": "나주점", "fullname": "하이마트 나주점", "ms": {"가전+IT": 54.0, "가전": 53.9, "IT": 56.6}, "lg": 542.7, "ss": 462.3, "sales": 53.0, "sales_prev": 79.9, "sales_yoy_pct": -33.7, "ms_prev": 53.9, "ms_yoy_pp": 0.1, "quadrant": "Q4_틈새점", "months": {"1": {"ms": {"가전+IT": 63.4, "가전": 63.1, "IT": 67.8}, "ms_prev": {"가전+IT": 50.9, "가전": 50.3, "IT": 56.6}, "sales": 38.4, "sales_prev": 116.4}, "2": {"ms": {"가전+IT": 45.5, "가전": 44.0, "IT": 56.0}, "ms_prev": {"가전+IT": 55.6, "가전": 55.6, "IT": 56.9}, "sales": 31.8, "sales_prev": 81.3}, "3": {"ms": {"가전+IT": 60.7, "가전": 65.0, "IT": 15.7}, "ms_prev": {"가전+IT": 63.0, "가전": 63.4, "IT": 45.4}, "sales": 50.8, "sales_prev": 81.2}, "4": {"ms": {"가전+IT": 66.3, "가전": 66.3, "IT": null}, "ms_prev": {"가전+IT": 48.6, "가전": 49.4, "IT": 19.9}, "sales": 38.1, "sales_prev": 57.9}, "5": {"ms": {"가전+IT": 55.0, "가전": 54.0, "IT": 100.0}, "ms_prev": {"가전+IT": 51.8, "가전": 54.3, "IT": 10.5}, "sales": 58.1, "sales_prev": 72.6}, "6": {"ms": {"가전+IT": 49.3, "가전": 47.3, "IT": 76.0}, "ms_prev": {"가전+IT": 60.3, "가전": 60.1, "IT": 100.0}, "sales": 43.3, "sales_prev": 64.5}, "7": {"ms": {"가전+IT": 48.7, "가전": 49.4, "IT": 31.9}, "ms_prev": {"가전+IT": 54.4, "가전": 53.6, "IT": 86.0}, "sales": 89.9, "sales_prev": 105.8}, "8": {"ms": {"가전+IT": 54.2, "가전": 53.2, "IT": 100.0}, "ms_prev": {"가전+IT": 50.6, "가전": 50.8, "IT": 23.0}, "sales": 73.6, "sales_prev": 59.5}}, "ms_prev_by_cat": {"가전+IT": 54.4, "가전": 54.7, "IT": 49.8}}, {"name": "남원점", "fullname": "하이마트 남원점", "ms": {"가전+IT": 50.8, "가전": 50.7, "IT": 53.3}, "lg": 613.9, "ss": 594.2, "sales": 65.8, "sales_prev": 79.3, "sales_yoy_pct": -17.1, "ms_prev": 53.6, "ms_yoy_pp": -2.8, "quadrant": "Q4_틈새점", "months": {"1": {"ms": {"가전+IT": 43.6, "가전": 41.2, "IT": 76.0}, "ms_prev": {"가전+IT": 58.2, "가전": 58.6, "IT": 54.4}, "sales": 58.5, "sales_prev": 61.0}, "2": {"ms": {"가전+IT": 51.5, "가전": 51.2, "IT": 53.0}, "ms_prev": {"가전+IT": 44.7, "가전": 41.0, "IT": 66.2}, "sales": 55.3, "sales_prev": 56.4}, "3": {"ms": {"가전+IT": 61.5, "가전": 62.3, "IT": 52.0}, "ms_prev": {"가전+IT": 44.7, "가전": 42.8, "IT": 81.1}, "sales": 67.9, "sales_prev": 76.3}, "4": {"ms": {"가전+IT": 45.8, "가전": 46.2, "IT": 37.1}, "ms_prev": {"가전+IT": 49.8, "가전": 49.5, "IT": 61.6}, "sales": 59.0, "sales_prev": 65.5}, "5": {"ms": {"가전+IT": 41.1, "가전": 40.5, "IT": 61.3}, "ms_prev": {"가전+IT": 53.3, "가전": 53.1, "IT": 58.0}, "sales": 41.8, "sales_prev": 59.8}, "6": {"ms": {"가전+IT": 33.5, "가전": 32.0, "IT": 64.2}, "ms_prev": {"가전+IT": 58.7, "가전": 58.6, "IT": 75.0}, "sales": 49.7, "sales_prev": 95.6}, "7": {"ms": {"가전+IT": 64.8, "가전": 64.4, "IT": 88.6}, "ms_prev": {"가전+IT": 54.5, "가전": 54.3, "IT": 62.6}, "sales": 106.1, "sales_prev": 132.1}, "8": {"ms": {"가전+IT": 62.6, "가전": 65.1, "IT": 0.0}, "ms_prev": {"가전+IT": 57.8, "가전": 58.1, "IT": 49.0}, "sales": 87.8, "sales_prev": 88.0}}, "ms_prev_by_cat": {"가전+IT": 52.7, "가전": 52.0, "IT": 63.5}}, {"name": "동광양점", "fullname": "하이마트 동광양점", "ms": {"가전+IT": 45.9, "가전": 45.5, "IT": 53.1}, "lg": 711.9, "ss": 838.2, "sales": 75.6, "sales_prev": 77.6, "sales_yoy_pct": -2.6, "ms_prev": 53.6, "ms_yoy_pp": -7.7, "quadrant": "Q3_부진점", "months": {"1": {"ms": {"가전+IT": 48.7, "가전": 44.5, "IT": 81.0}, "ms_prev": {"가전+IT": 64.8, "가전": 65.6, "IT": 53.3}, "sales": 67.4, "sales_prev": 54.4}, "2": {"ms": {"가전+IT": 51.3, "가전": 49.0, "IT": 61.7}, "ms_prev": {"가전+IT": 63.5, "가전": 64.3, "IT": 58.6}, "sales": 72.3, "sales_prev": 78.3}, "3": {"ms": {"가전+IT": 58.8, "가전": 61.7, "IT": 29.4}, "ms_prev": {"가전+IT": 55.2, "가전": 55.9, "IT": 48.1}, "sales": 69.7, "sales_prev": 78.3}, "4": {"ms": {"가전+IT": 59.1, "가전": 59.4, "IT": 52.5}, "ms_prev": {"가전+IT": 59.2, "가전": 60.6, "IT": 16.1}, "sales": 38.7, "sales_prev": 77.9}, "5": {"ms": {"가전+IT": 32.8, "가전": 32.2, "IT": 41.3}, "ms_prev": {"가전+IT": 58.3, "가전": 58.3, "IT": 57.0}, "sales": 43.9, "sales_prev": 82.5}, "6": {"ms": {"가전+IT": 25.7, "가전": 25.5, "IT": 41.9}, "ms_prev": {"가전+IT": 55.0, "가전": 56.3, "IT": 11.2}, "sales": 63.1, "sales_prev": 79.0}, "7": {"ms": {"가전+IT": 50.2, "가전": 50.4, "IT": 43.9}, "ms_prev": {"가전+IT": 43.6, "가전": 44.8, "IT": 10.8}, "sales": 132.7, "sales_prev": 80.3}, "8": {"ms": {"가전+IT": 54.6, "가전": 55.1, "IT": 40.4}, "ms_prev": {"가전+IT": 58.4, "가전": 57.5, "IT": 76.0}, "sales": 116.7, "sales_prev": 90.2}}, "ms_prev_by_cat": {"가전+IT": 57.2, "가전": 57.9, "IT": 41.4}}, {"name": "동광주점", "fullname": "하이마트 동광주점", "ms": {"가전+IT": 53.9, "가전": 54.5, "IT": 41.5}, "lg": 1220.4, "ss": 1043.1, "sales": 131.5, "sales_prev": 146.5, "sales_yoy_pct": -10.2, "ms_prev": 58.7, "ms_yoy_pp": -4.8, "quadrant": "Q1_우량점", "months": {"1": {"ms": {"가전+IT": 61.4, "가전": 62.9, "IT": 38.4}, "ms_prev": {"가전+IT": 51.9, "가전": 50.0, "IT": 76.1}, "sales": 148.2, "sales_prev": 96.0}, "2": {"ms": {"가전+IT": 59.1, "가전": 57.7, "IT": 80.1}, "ms_prev": {"가전+IT": 56.7, "가전": 55.7, "IT": 66.8}, "sales": 101.1, "sales_prev": 110.4}, "3": {"ms": {"가전+IT": 54.5, "가전": 54.8, "IT": 51.6}, "ms_prev": {"가전+IT": 57.8, "가전": 58.9, "IT": 45.2}, "sales": 124.8, "sales_prev": 171.2}, "4": {"ms": {"가전+IT": 65.7, "가전": 67.0, "IT": 36.0}, "ms_prev": {"가전+IT": 60.2, "가전": 61.2, "IT": 33.6}, "sales": 114.5, "sales_prev": 155.9}, "5": {"ms": {"가전+IT": 52.9, "가전": 53.2, "IT": 30.3}, "ms_prev": {"가전+IT": 56.1, "가전": 56.8, "IT": 29.8}, "sales": 147.2, "sales_prev": 128.9}, "6": {"ms": {"가전+IT": 41.4, "가전": 42.2, "IT": 2.2}, "ms_prev": {"가전+IT": 51.4, "가전": 51.9, "IT": 37.2}, "sales": 105.8, "sales_prev": 152.0}, "7": {"ms": {"가전+IT": 45.4, "가전": 46.0, "IT": 33.2}, "ms_prev": {"가전+IT": 63.5, "가전": 63.5, "IT": 65.9}, "sales": 160.2, "sales_prev": 202.3}, "8": {"ms": {"가전+IT": 60.1, "가전": 60.7, "IT": 35.7}, "ms_prev": {"가전+IT": 62.0, "가전": 61.7, "IT": 73.5}, "sales": 150.4, "sales_prev": 155.0}}, "ms_prev_by_cat": {"가전+IT": 57.4, "가전": 57.5, "IT": 53.5}}, {"name": "목포점", "fullname": "하이마트 목포점", "ms": {"가전+IT": 47.8, "가전": 47.0, "IT": 60.7}, "lg": 759.0, "ss": 829.0, "sales": 78.8, "sales_prev": 96.7, "sales_yoy_pct": -18.6, "ms_prev": 49.5, "ms_yoy_pp": -1.8, "quadrant": "Q3_부진점", "months": {"1": {"ms": {"가전+IT": 62.0, "가전": 61.7, "IT": 68.4}, "ms_prev": {"가전+IT": 50.9, "가전": 50.3, "IT": 54.8}, "sales": 77.2, "sales_prev": 74.9}, "2": {"ms": {"가전+IT": 55.8, "가전": 52.4, "IT": 85.1}, "ms_prev": {"가전+IT": 51.6, "가전": 49.4, "IT": 72.3}, "sales": 49.7, "sales_prev": 86.1}, "3": {"ms": {"가전+IT": 50.3, "가전": 46.3, "IT": 75.6}, "ms_prev": {"가전+IT": 56.0, "가전": 56.1, "IT": 55.5}, "sales": 73.8, "sales_prev": 91.7}, "4": {"ms": {"가전+IT": 40.5, "가전": 41.7, "IT": 27.2}, "ms_prev": {"가전+IT": 60.8, "가전": 61.2, "IT": 47.0}, "sales": 59.8, "sales_prev": 96.6}, "5": {"ms": {"가전+IT": 53.2, "가전": 51.5, "IT": 100.0}, "ms_prev": {"가전+IT": 57.8, "가전": 57.9, "IT": 47.6}, "sales": 84.0, "sales_prev": 122.9}, "6": {"ms": {"가전+IT": 23.4, "가전": 23.4, "IT": 23.7}, "ms_prev": {"가전+IT": 55.0, "가전": 55.2, "IT": 49.0}, "sales": 46.7, "sales_prev": 102.1}, "7": {"ms": {"가전+IT": 53.4, "가전": 54.7, "IT": 19.2}, "ms_prev": {"가전+IT": 49.7, "가전": 50.3, "IT": 15.3}, "sales": 135.3, "sales_prev": 132.1}, "8": {"ms": {"가전+IT": 55.8, "가전": 53.7, "IT": 97.4}, "ms_prev": {"가전+IT": 43.1, "가전": 43.0, "IT": 47.0}, "sales": 103.5, "sales_prev": 67.1}}, "ms_prev_by_cat": {"가전+IT": 53.1, "가전": 52.9, "IT": 48.6}}, {"name": "봉선점", "fullname": "하이마트 봉선점", "ms": {"가전+IT": 50.3, "가전": 50.5, "IT": 43.3}, "lg": 1627.5, "ss": 1610.0, "sales": 178.9, "sales_prev": 120.9, "sales_yoy_pct": 48.0, "ms_prev": 49.4, "ms_yoy_pp": 0.8, "quadrant": "Q1_우량점", "months": {"1": {"ms": {"가전+IT": 44.6, "가전": 44.9, "IT": 41.0}, "ms_prev": {"가전+IT": 61.7, "가전": 62.1, "IT": 55.7}, "sales": 111.5, "sales_prev": 100.3}, "2": {"ms": {"가전+IT": 53.8, "가전": 54.6, "IT": 49.0}, "ms_prev": {"가전+IT": 54.3, "가전": 57.0, "IT": 37.0}, "sales": 100.1, "sales_prev": 68.6}, "3": {"ms": {"가전+IT": 44.4, "가전": 41.3, "IT": 68.0}, "ms_prev": {"가전+IT": 52.1, "가전": 50.3, "IT": 63.8}, "sales": 100.5, "sales_prev": 139.0}, "4": {"ms": {"가전+IT": 43.1, "가전": 44.0, "IT": 0.0}, "ms_prev": {"가전+IT": 50.5, "가전": 50.1, "IT": 62.8}, "sales": 67.2, "sales_prev": 120.3}, "5": {"ms": {"가전+IT": 53.2, "가전": 53.9, "IT": 0.0}, "ms_prev": {"가전+IT": 60.7, "가전": 60.0, "IT": 74.5}, "sales": 595.8, "sales_prev": 133.5}, "6": {"ms": {"가전+IT": 41.1, "가전": 41.4, "IT": 0.0}, "ms_prev": {"가전+IT": 46.7, "가전": 46.7, "IT": 45.0}, "sales": 74.8, "sales_prev": 129.0}, "7": {"ms": {"가전+IT": 60.5, "가전": 61.0, "IT": 25.9}, "ms_prev": {"가전+IT": 51.9, "가전": 52.0, "IT": 49.1}, "sales": 215.6, "sales_prev": 170.6}, "8": {"ms": {"가전+IT": 55.2, "가전": 55.1, "IT": 69.4}, "ms_prev": {"가전+IT": 45.5, "가전": 46.2, "IT": 23.9}, "sales": 165.8, "sales_prev": 106.1}}, "ms_prev_by_cat": {"가전+IT": 52.9, "가전": 53.0, "IT": 51.5}}, {"name": "상무점", "fullname": "하이마트 상무점", "ms": {"가전+IT": 49.9, "가전": 49.8, "IT": 51.3}, "lg": 2611.0, "ss": 2621.8, "sales": 283.5, "sales_prev": 268.9, "sales_yoy_pct": 5.4, "ms_prev": 60.2, "ms_yoy_pp": -10.3, "quadrant": "Q1_우량점", "months": {"1": {"ms": {"가전+IT": 52.9, "가전": 53.5, "IT": 46.7}, "ms_prev": {"가전+IT": 64.8, "가전": 67.2, "IT": 39.8}, "sales": 265.5, "sales_prev": 357.5}, "2": {"ms": {"가전+IT": 62.2, "가전": 64.3, "IT": 46.9}, "ms_prev": {"가전+IT": 71.7, "가전": 72.8, "IT": 55.1}, "sales": 280.5, "sales_prev": 255.2}, "3": {"ms": {"가전+IT": 68.4, "가전": 69.1, "IT": 61.7}, "ms_prev": {"가전+IT": 62.8, "가전": 65.4, "IT": 30.0}, "sales": 258.5, "sales_prev": 252.9}, "4": {"ms": {"가전+IT": 51.4, "가전": 50.9, "IT": 68.6}, "ms_prev": {"가전+IT": 57.2, "가전": 57.7, "IT": 44.0}, "sales": 270.3, "sales_prev": 275.0}, "5": {"ms": {"가전+IT": 58.9, "가전": 59.0, "IT": 55.4}, "ms_prev": {"가전+IT": 74.7, "가전": 76.1, "IT": 26.9}, "sales": 223.9, "sales_prev": 285.6}, "6": {"ms": {"가전+IT": 30.9, "가전": 31.0, "IT": 27.8}, "ms_prev": {"가전+IT": 68.3, "가전": 69.8, "IT": 24.5}, "sales": 125.8, "sales_prev": 211.5}, "7": {"ms": {"가전+IT": 40.8, "가전": 41.0, "IT": 30.5}, "ms_prev": {"가전+IT": 62.2, "가전": 62.4, "IT": 53.5}, "sales": 387.7, "sales_prev": 246.7}, "8": {"ms": {"가전+IT": 48.8, "가전": 48.3, "IT": 69.1}, "ms_prev": {"가전+IT": 57.1, "가전": 57.7, "IT": 40.2}, "sales": 456.2, "sales_prev": 266.8}}, "ms_prev_by_cat": {"가전+IT": 64.8, "가전": 66.1, "IT": 39.2}}, {"name": "서곡점", "fullname": "하이마트 서곡점", "ms": {"가전+IT": 46.2, "가전": 46.4, "IT": 42.1}, "lg": 839.9, "ss": 978.1, "sales": 89.6, "sales_prev": 110.8, "sales_yoy_pct": -19.1, "ms_prev": 51.3, "ms_yoy_pp": -5.1, "quadrant": "Q3_부진점", "months": {"1": {"ms": {"가전+IT": 46.1, "가전": 47.4, "IT": 33.4}, "ms_prev": {"가전+IT": 47.6, "가전": 47.1, "IT": 52.4}, "sales": 51.2, "sales_prev": 86.2}, "2": {"ms": {"가전+IT": 55.8, "가전": 58.0, "IT": 41.6}, "ms_prev": {"가전+IT": 68.7, "가전": 72.1, "IT": 44.3}, "sales": 81.8, "sales_prev": 50.0}, "3": {"ms": {"가전+IT": 62.5, "가전": 61.8, "IT": 69.6}, "ms_prev": {"가전+IT": 56.2, "가전": 56.9, "IT": 43.4}, "sales": 106.6, "sales_prev": 264.7}, "4": {"ms": {"가전+IT": 39.9, "가전": 39.3, "IT": 64.7}, "ms_prev": {"가전+IT": 54.0, "가전": 54.2, "IT": 0.0}, "sales": 71.4, "sales_prev": 74.5}, "5": {"ms": {"가전+IT": 49.9, "가전": 50.4, "IT": 9.0}, "ms_prev": {"가전+IT": 61.9, "가전": 62.0, "IT": 57.3}, "sales": 101.8, "sales_prev": 126.6}, "6": {"ms": {"가전+IT": 34.5, "가전": 34.9, "IT": 19.9}, "ms_prev": {"가전+IT": 39.6, "가전": 37.2, "IT": 76.6}, "sales": 67.6, "sales_prev": 75.0}, "7": {"ms": {"가전+IT": 44.4, "가전": 44.6, "IT": 40.3}, "ms_prev": {"가전+IT": 54.3, "가전": 54.8, "IT": 6.0}, "sales": 148.6, "sales_prev": 136.9}, "8": {"ms": {"가전+IT": 50.1, "가전": 50.6, "IT": 32.0}, "ms_prev": {"가전+IT": 43.1, "가전": 43.2, "IT": 35.4}, "sales": 87.7, "sales_prev": 72.3}}, "ms_prev_by_cat": {"가전+IT": 53.2, "가전": 53.4, "IT": 39.4}}, {"name": "송천점", "fullname": "하이마트 송천점", "ms": {"가전+IT": 51.9, "가전": 52.8, "IT": 34.7}, "lg": 2794.2, "ss": 2593.2, "sales": 291.0, "sales_prev": 312.7, "sales_yoy_pct": -6.9, "ms_prev": 54.5, "ms_yoy_pp": -2.6, "quadrant": "Q1_우량점", "months": {"1": {"ms": {"가전+IT": 53.7, "가전": 54.3, "IT": 43.7}, "ms_prev": {"가전+IT": 46.0, "가전": 47.0, "IT": 28.7}, "sales": 337.5, "sales_prev": 361.3}, "2": {"ms": {"가전+IT": 62.0, "가전": 66.0, "IT": 35.8}, "ms_prev": {"가전+IT": 44.8, "가전": 46.8, "IT": 23.0}, "sales": 182.9, "sales_prev": 236.7}, "3": {"ms": {"가전+IT": 66.6, "가전": 70.3, "IT": 22.3}, "ms_prev": {"가전+IT": 59.1, "가전": 61.0, "IT": 24.7}, "sales": 327.9, "sales_prev": 349.7}, "4": {"ms": {"가전+IT": 54.3, "가전": 54.4, "IT": 52.3}, "ms_prev": {"가전+IT": 55.5, "가전": 56.5, "IT": 18.4}, "sales": 234.3, "sales_prev": 349.4}, "5": {"ms": {"가전+IT": 57.0, "가전": 57.7, "IT": 36.5}, "ms_prev": {"가전+IT": 60.0, "가전": 60.3, "IT": 52.6}, "sales": 318.1, "sales_prev": 307.9}, "6": {"ms": {"가전+IT": 39.6, "가전": 40.8, "IT": 5.5}, "ms_prev": {"가전+IT": 57.7, "가전": 58.0, "IT": 50.2}, "sales": 225.8, "sales_prev": 253.6}, "7": {"ms": {"가전+IT": 45.3, "가전": 45.5, "IT": 39.4}, "ms_prev": {"가전+IT": 52.7, "가전": 53.1, "IT": 16.8}, "sales": 341.5, "sales_prev": 408.5}, "8": {"ms": {"가전+IT": 47.5, "가전": 47.4, "IT": 50.8}, "ms_prev": {"가전+IT": 53.0, "가전": 53.8, "IT": 19.3}, "sales": 360.1, "sales_prev": 234.4}}, "ms_prev_by_cat": {"가전+IT": 53.6, "가전": 54.6, "IT": 29.2}}, {"name": "수송점", "fullname": "하이마트 수송점", "ms": {"가전+IT": 50.4, "가전": 50.9, "IT": 39.9}, "lg": 1166.5, "ss": 1148.6, "sales": 121.2, "sales_prev": 106.5, "sales_yoy_pct": 13.9, "ms_prev": 52.3, "ms_yoy_pp": -1.9, "quadrant": "Q1_우량점", "months": {"1": {"ms": {"가전+IT": 43.4, "가전": 44.7, "IT": 30.1}, "ms_prev": {"가전+IT": 57.7, "가전": 58.3, "IT": 49.7}, "sales": 82.2, "sales_prev": 74.3}, "2": {"ms": {"가전+IT": 49.8, "가전": 51.3, "IT": 35.4}, "ms_prev": {"가전+IT": 61.7, "가전": 62.1, "IT": 60.0}, "sales": 59.8, "sales_prev": 69.1}, "3": {"ms": {"가전+IT": 82.0, "가전": 83.5, "IT": 70.4}, "ms_prev": {"가전+IT": 46.9, "가전": 43.9, "IT": 65.8}, "sales": 136.9, "sales_prev": 131.5}, "4": {"ms": {"가전+IT": 56.3, "가전": 57.4, "IT": 20.1}, "ms_prev": {"가전+IT": 45.8, "가전": 46.4, "IT": 38.8}, "sales": 128.7, "sales_prev": 99.0}, "5": {"ms": {"가전+IT": 63.9, "가전": 63.8, "IT": 82.1}, "ms_prev": {"가전+IT": 53.9, "가전": 54.4, "IT": 9.2}, "sales": 129.3, "sales_prev": 99.1}, "6": {"ms": {"가전+IT": 37.0, "가전": 37.4, "IT": 29.7}, "ms_prev": {"가전+IT": 51.5, "가전": 51.1, "IT": 79.9}, "sales": 94.5, "sales_prev": 121.1}, "7": {"ms": {"가전+IT": 41.4, "가전": 41.7, "IT": 26.6}, "ms_prev": {"가전+IT": 48.2, "가전": 48.1, "IT": 54.5}, "sales": 190.6, "sales_prev": 153.6}, "8": {"ms": {"가전+IT": 52.0, "가전": 52.8, "IT": 35.5}, "ms_prev": {"가전+IT": 56.7, "가전": 57.1, "IT": 43.7}, "sales": 147.7, "sales_prev": 104.0}}, "ms_prev_by_cat": {"가전+IT": 52.8, "가전": 52.7, "IT": 50.2}}, {"name": "수완점", "fullname": "하이마트 수완점", "ms": {"가전+IT": 45.9, "가전": 45.9, "IT": 46.9}, "lg": 1235.8, "ss": 1454.7, "sales": 133.8, "sales_prev": 192.4, "sales_yoy_pct": -30.5, "ms_prev": 54.7, "ms_yoy_pp": -8.8, "quadrant": "Q2_기회점", "months": {"1": {"ms": {"가전+IT": 51.0, "가전": 51.2, "IT": 49.7}, "ms_prev": {"가전+IT": 63.2, "가전": 63.6, "IT": 60.5}, "sales": 51.5, "sales_prev": 196.7}, "2": {"ms": {"가전+IT": 40.9, "가전": 37.2, "IT": 52.6}, "ms_prev": {"가전+IT": 55.6, "가전": 56.8, "IT": 47.9}, "sales": 87.1, "sales_prev": 167.4}, "3": {"ms": {"가전+IT": 62.5, "가전": 62.1, "IT": 71.7}, "ms_prev": {"가전+IT": 59.5, "가전": 61.6, "IT": 36.6}, "sales": 168.2, "sales_prev": 266.8}, "4": {"ms": {"가전+IT": 55.6, "가전": 54.4, "IT": 74.9}, "ms_prev": {"가전+IT": 53.2, "가전": 53.5, "IT": 47.6}, "sales": 149.3, "sales_prev": 183.9}, "5": {"ms": {"가전+IT": 48.7, "가전": 48.2, "IT": 67.9}, "ms_prev": {"가전+IT": 54.1, "가전": 54.1, "IT": 52.2}, "sales": 119.0, "sales_prev": 97.6}, "6": {"ms": {"가전+IT": 26.7, "가전": 27.1, "IT": 13.3}, "ms_prev": {"가전+IT": 51.7, "가전": 51.2, "IT": 66.2}, "sales": 76.3, "sales_prev": 234.0}, "7": {"ms": {"가전+IT": 48.4, "가전": 49.8, "IT": 25.1}, "ms_prev": {"가전+IT": 51.2, "가전": 50.8, "IT": 60.3}, "sales": 205.4, "sales_prev": 213.1}, "8": {"ms": {"가전+IT": 44.8, "가전": 45.1, "IT": 32.5}, "ms_prev": {"가전+IT": 58.9, "가전": 60.1, "IT": 26.3}, "sales": 213.3, "sales_prev": 180.1}}, "ms_prev_by_cat": {"가전+IT": 55.9, "가전": 56.5, "IT": 49.7}}, {"name": "여수점", "fullname": "하이마트 여수점", "ms": {"가전+IT": 51.3, "가전": 51.8, "IT": 41.6}, "lg": 1058.0, "ss": 1004.8, "sales": 107.8, "sales_prev": 126.7, "sales_yoy_pct": -14.9, "ms_prev": 53.9, "ms_yoy_pp": -2.6, "quadrant": "Q4_틈새점", "months": {"1": {"ms": {"가전+IT": 34.5, "가전": 34.1, "IT": 39.2}, "ms_prev": {"가전+IT": 58.9, "가전": 57.0, "IT": 83.3}, "sales": 47.9, "sales_prev": 93.4}, "2": {"ms": {"가전+IT": 56.7, "가전": 57.9, "IT": 47.5}, "ms_prev": {"가전+IT": 61.0, "가전": 57.3, "IT": 74.7}, "sales": 93.1, "sales_prev": 70.7}, "3": {"ms": {"가전+IT": 61.6, "가전": 61.9, "IT": 57.3}, "ms_prev": {"가전+IT": 72.2, "가전": 70.9, "IT": 88.7}, "sales": 75.4, "sales_prev": 162.9}, "4": {"ms": {"가전+IT": 49.0, "가전": 49.8, "IT": 35.4}, "ms_prev": {"가전+IT": 56.7, "가전": 55.9, "IT": 78.0}, "sales": 116.5, "sales_prev": 125.9}, "5": {"ms": {"가전+IT": 57.0, "가전": 56.7, "IT": 65.9}, "ms_prev": {"가전+IT": 50.0, "가전": 50.2, "IT": 44.9}, "sales": 114.1, "sales_prev": 132.8}, "6": {"ms": {"가전+IT": 35.4, "가전": 36.5, "IT": 2.6}, "ms_prev": {"가전+IT": 50.3, "가전": 49.6, "IT": 72.8}, "sales": 91.6, "sales_prev": 99.5}, "7": {"ms": {"가전+IT": 58.2, "가전": 59.2, "IT": 14.4}, "ms_prev": {"가전+IT": 50.5, "가전": 50.5, "IT": 51.5}, "sales": 188.4, "sales_prev": 190.7}, "8": {"ms": {"가전+IT": 57.4, "가전": 57.0, "IT": 66.7}, "ms_prev": {"가전+IT": 55.1, "가전": 55.4, "IT": 41.1}, "sales": 135.6, "sales_prev": 137.8}}, "ms_prev_by_cat": {"가전+IT": 56.8, "가전": 55.9, "IT": 66.9}}, {"name": "여천롯데마트점", "fullname": "하이마트 여천롯데마트점", "ms": {"가전+IT": 39.0, "가전": 40.2, "IT": 17.0}, "lg": 182.2, "ss": 285.0, "sales": 19.3, "sales_prev": 31.1, "sales_yoy_pct": -37.9, "ms_prev": 53.3, "ms_yoy_pp": -14.3, "quadrant": "Q3_부진점", "months": {"1": {"ms": {"가전+IT": 44.4, "가전": 43.9, "IT": 49.2}, "ms_prev": {"가전+IT": 59.2, "가전": 64.1, "IT": 32.8}, "sales": 9.8, "sales_prev": 24.8}, "2": {"ms": {"가전+IT": 57.5, "가전": 59.5, "IT": 15.6}, "ms_prev": {"가전+IT": 55.8, "가전": 52.7, "IT": 100.0}, "sales": 13.8, "sales_prev": 17.8}, "3": {"ms": {"가전+IT": 68.9, "가전": 75.9, "IT": 0.0}, "ms_prev": {"가전+IT": 64.6, "가전": 55.3, "IT": 100.0}, "sales": 19.1, "sales_prev": 26.2}, "4": {"ms": {"가전+IT": 41.6, "가전": 45.6, "IT": 0.0}, "ms_prev": {"가전+IT": 64.3, "가전": 65.3, "IT": 21.8}, "sales": 12.8, "sales_prev": 28.3}, "5": {"ms": {"가전+IT": 38.0, "가전": 37.3, "IT": 47.9}, "ms_prev": {"가전+IT": 63.8, "가전": 63.9, "IT": 62.2}, "sales": 20.7, "sales_prev": 34.3}, "6": {"ms": {"가전+IT": 9.5, "가전": 9.8, "IT": 0.0}, "ms_prev": {"가전+IT": 51.5, "가전": 52.3, "IT": 26.2}, "sales": 8.4, "sales_prev": 86.4}, "7": {"ms": {"가전+IT": 47.6, "가전": 49.6, "IT": 3.5}, "ms_prev": {"가전+IT": 40.7, "가전": 41.0, "IT": 13.0}, "sales": 38.6, "sales_prev": 1.3}, "8": {"ms": {"가전+IT": 47.9, "가전": 48.6, "IT": 16.2}, "ms_prev": {"가전+IT": 61.1, "가전": 60.3, "IT": 69.9}, "sales": 31.3, "sales_prev": 29.7}}, "ms_prev_by_cat": {"가전+IT": 57.6, "가전": 56.9, "IT": 53.2}}, {"name": "여천점", "fullname": "하이마트 여천점", "ms": {"가전+IT": 48.5, "가전": 48.9, "IT": 43.8}, "lg": 888.6, "ss": 943.1, "sales": 92.2, "sales_prev": 100.8, "sales_yoy_pct": -8.6, "ms_prev": 49.8, "ms_yoy_pp": -1.3, "quadrant": "Q4_틈새점", "months": {"1": {"ms": {"가전+IT": 52.7, "가전": 57.2, "IT": 20.7}, "ms_prev": {"가전+IT": 54.6, "가전": 58.6, "IT": 13.3}, "sales": 76.3, "sales_prev": 96.9}, "2": {"ms": {"가전+IT": 60.6, "가전": 63.8, "IT": 53.0}, "ms_prev": {"가전+IT": 46.1, "가전": 49.0, "IT": 32.6}, "sales": 94.4, "sales_prev": 71.5}, "3": {"ms": {"가전+IT": 57.1, "가전": 54.0, "IT": 76.4}, "ms_prev": {"가전+IT": 45.1, "가전": 47.6, "IT": 22.9}, "sales": 92.2, "sales_prev": 94.3}, "4": {"ms": {"가전+IT": 52.4, "가전": 52.9, "IT": 0.0}, "ms_prev": {"가전+IT": 47.1, "가전": 47.9, "IT": 24.8}, "sales": 61.1, "sales_prev": 97.7}, "5": {"ms": {"가전+IT": 44.4, "가전": 43.6, "IT": 57.5}, "ms_prev": {"가전+IT": 42.4, "가전": 42.6, "IT": 36.5}, "sales": 94.8, "sales_prev": 88.3}, "6": {"ms": {"가전+IT": 26.7, "가전": 27.4, "IT": 9.5}, "ms_prev": {"가전+IT": 55.6, "가전": 56.6, "IT": 15.3}, "sales": 68.8, "sales_prev": 112.3}, "7": {"ms": {"가전+IT": 50.2, "가전": 52.8, "IT": 1.6}, "ms_prev": {"가전+IT": 44.5, "가전": 45.4, "IT": 14.8}, "sales": 145.1, "sales_prev": 119.2}, "8": {"ms": {"가전+IT": 53.9, "가전": 53.6, "IT": 62.2}, "ms_prev": {"가전+IT": 47.8, "가전": 49.4, "IT": 1.9}, "sales": 104.9, "sales_prev": 126.5}}, "ms_prev_by_cat": {"가전+IT": 47.9, "가전": 49.6, "IT": 20.3}}, {"name": "연향점", "fullname": "하이마트 연향점", "ms": {"가전+IT": 49.6, "가전": 49.5, "IT": 51.9}, "lg": 1130.1, "ss": 1148.7, "sales": 118.3, "sales_prev": 155.3, "sales_yoy_pct": -23.8, "ms_prev": 58.6, "ms_yoy_pp": -9.0, "quadrant": "Q1_우량점", "months": {"1": {"ms": {"가전+IT": 48.4, "가전": 48.1, "IT": 55.5}, "ms_prev": {"가전+IT": 68.9, "가전": 70.3, "IT": 43.7}, "sales": 95.6, "sales_prev": 115.5}, "2": {"ms": {"가전+IT": 50.7, "가전": 47.5, "IT": 78.4}, "ms_prev": {"가전+IT": 66.0, "가전": 62.9, "IT": 89.4}, "sales": 105.4, "sales_prev": 120.3}, "3": {"ms": {"가전+IT": 58.9, "가전": 58.8, "IT": 59.4}, "ms_prev": {"가전+IT": 61.0, "가전": 61.1, "IT": 55.7}, "sales": 112.8, "sales_prev": 159.0}, "4": {"ms": {"가전+IT": 63.2, "가전": 63.9, "IT": 44.5}, "ms_prev": {"가전+IT": 68.3, "가전": 68.5, "IT": 63.8}, "sales": 90.4, "sales_prev": 158.8}, "5": {"ms": {"가전+IT": 40.1, "가전": 41.0, "IT": 21.2}, "ms_prev": {"가전+IT": 63.9, "가전": 64.1, "IT": 54.0}, "sales": 112.6, "sales_prev": 169.7}, "6": {"ms": {"가전+IT": 34.2, "가전": 34.9, "IT": 2.6}, "ms_prev": {"가전+IT": 65.4, "가전": 65.2, "IT": 92.8}, "sales": 112.9, "sales_prev": 157.0}, "7": {"ms": {"가전+IT": 51.7, "가전": 51.4, "IT": 59.3}, "ms_prev": {"가전+IT": 56.7, "가전": 56.8, "IT": 48.8}, "sales": 186.0, "sales_prev": 205.2}, "8": {"ms": {"가전+IT": 56.7, "가전": 57.4, "IT": 0.0}, "ms_prev": {"가전+IT": 59.0, "가전": 58.9, "IT": 66.6}, "sales": 131.1, "sales_prev": 156.7}}, "ms_prev_by_cat": {"가전+IT": 63.6, "가전": 63.5, "IT": 64.4}}, {"name": "용봉점", "fullname": "하이마트 용봉점", "ms": {"가전+IT": 53.4, "가전": 53.6, "IT": 47.9}, "lg": 1876.4, "ss": 1638.3, "sales": 196.2, "sales_prev": 179.8, "sales_yoy_pct": 9.1, "ms_prev": 50.6, "ms_yoy_pp": 2.8, "quadrant": "Q1_우량점", "months": {"1": {"ms": {"가전+IT": 56.1, "가전": 56.4, "IT": 51.4}, "ms_prev": {"가전+IT": 40.0, "가전": 40.7, "IT": 33.8}, "sales": 168.8, "sales_prev": 91.3}, "2": {"ms": {"가전+IT": 61.1, "가전": 62.4, "IT": 38.2}, "ms_prev": {"가전+IT": 30.6, "가전": 29.0, "IT": 50.0}, "sales": 160.0, "sales_prev": 94.8}, "3": {"ms": {"가전+IT": 58.8, "가전": 60.0, "IT": 41.4}, "ms_prev": {"가전+IT": 41.4, "가전": 42.6, "IT": 24.1}, "sales": 298.8, "sales_prev": 306.0}, "4": {"ms": {"가전+IT": 57.9, "가전": 58.4, "IT": 22.6}, "ms_prev": {"가전+IT": 54.9, "가전": 55.7, "IT": 28.4}, "sales": 216.8, "sales_prev": 193.4}, "5": {"ms": {"가전+IT": 57.4, "가전": 56.6, "IT": 92.2}, "ms_prev": {"가전+IT": 48.8, "가전": 48.8, "IT": 48.8}, "sales": 123.0, "sales_prev": 189.3}, "6": {"ms": {"가전+IT": 43.6, "가전": 44.0, "IT": 21.3}, "ms_prev": {"가전+IT": 56.3, "가전": 56.6, "IT": 38.7}, "sales": 179.7, "sales_prev": 153.0}, "7": {"ms": {"가전+IT": 43.4, "가전": 44.0, "IT": 14.8}, "ms_prev": {"가전+IT": 49.9, "가전": 49.6, "IT": 66.0}, "sales": 225.6, "sales_prev": 234.5}, "8": {"ms": {"가전+IT": 60.8, "가전": 59.7, "IT": 87.4}, "ms_prev": {"가전+IT": 47.9, "가전": 48.1, "IT": 26.5}, "sales": 197.2, "sales_prev": 176.3}}, "ms_prev_by_cat": {"가전+IT": 46.2, "가전": 46.4, "IT": 39.5}}, {"name": "월드컵롯데마트점", "fullname": "하이마트 월드컵롯데마트점", "ms": {"가전+IT": 47.4, "가전": 48.1, "IT": 36.3}, "lg": 1091.6, "ss": 1211.7, "sales": 114.6, "sales_prev": 108.9, "sales_yoy_pct": 5.2, "ms_prev": 56.5, "ms_yoy_pp": -9.1, "quadrant": "Q3_부진점", "months": {"1": {"ms": {"가전+IT": 53.4, "가전": 54.7, "IT": 41.4}, "ms_prev": {"가전+IT": 62.1, "가전": 64.7, "IT": 39.9}, "sales": 82.9, "sales_prev": 53.7}, "2": {"ms": {"가전+IT": 51.9, "가전": 54.9, "IT": 34.4}, "ms_prev": {"가전+IT": 51.2, "가전": 53.9, "IT": 30.3}, "sales": 83.9, "sales_prev": 154.3}, "3": {"ms": {"가전+IT": 58.8, "가전": 59.6, "IT": 49.1}, "ms_prev": {"가전+IT": 67.8, "가전": 72.6, "IT": 31.3}, "sales": 120.5, "sales_prev": 97.7}, "4": {"ms": {"가전+IT": 46.6, "가전": 46.6, "IT": 45.7}, "ms_prev": {"가전+IT": 53.4, "가전": 52.7, "IT": 73.6}, "sales": 91.1, "sales_prev": 100.0}, "5": {"ms": {"가전+IT": 50.5, "가전": 50.8, "IT": 43.4}, "ms_prev": {"가전+IT": 57.3, "가전": 57.2, "IT": 62.3}, "sales": 120.0, "sales_prev": 103.6}, "6": {"ms": {"가전+IT": 32.7, "가전": 33.9, "IT": 3.4}, "ms_prev": {"가전+IT": 42.1, "가전": 42.0, "IT": 43.8}, "sales": 85.3, "sales_prev": 105.8}, "7": {"ms": {"가전+IT": 49.8, "가전": 50.5, "IT": 36.3}, "ms_prev": {"가전+IT": 52.5, "가전": 52.8, "IT": 35.0}, "sales": 181.4, "sales_prev": 143.3}, "8": {"ms": {"가전+IT": 44.6, "가전": 44.9, "IT": 35.8}, "ms_prev": {"가전+IT": 58.6, "가전": 61.1, "IT": 23.3}, "sales": 152.0, "sales_prev": 113.1}}, "ms_prev_by_cat": {"가전+IT": 55.6, "가전": 57.1, "IT": 42.4}}, {"name": "익산롯데마트점", "fullname": "하이마트 익산롯데마트점", "ms": {"가전+IT": 37.9, "가전": 37.7, "IT": 39.8}, "lg": 760.9, "ss": 1249.2, "sales": 79.8, "sales_prev": 114.5, "sales_yoy_pct": -30.3, "ms_prev": 41.2, "ms_yoy_pp": -3.4, "quadrant": "Q3_부진점", "months": {"1": {"ms": {"가전+IT": 36.4, "가전": 33.9, "IT": 57.9}, "ms_prev": {"가전+IT": 48.2, "가전": 47.9, "IT": 50.6}, "sales": 59.3, "sales_prev": 150.7}, "2": {"ms": {"가전+IT": 42.4, "가전": 38.0, "IT": 55.6}, "ms_prev": {"가전+IT": 37.1, "가전": 35.6, "IT": 47.6}, "sales": 68.0, "sales_prev": 213.2}, "3": {"ms": {"가전+IT": 41.3, "가전": 44.3, "IT": 15.8}, "ms_prev": {"가전+IT": 40.8, "가전": 41.7, "IT": 24.8}, "sales": 50.5, "sales_prev": 73.1}, "4": {"ms": {"가전+IT": 31.9, "가전": 31.0, "IT": 44.7}, "ms_prev": {"가전+IT": 36.1, "가전": 36.8, "IT": 6.7}, "sales": 41.9, "sales_prev": 70.7}, "5": {"ms": {"가전+IT": 44.1, "가전": 42.6, "IT": 63.9}, "ms_prev": {"가전+IT": 37.0, "가전": 38.0, "IT": 5.7}, "sales": 104.5, "sales_prev": 71.5}, "6": {"ms": {"가전+IT": 25.7, "가전": 26.3, "IT": 13.3}, "ms_prev": {"가전+IT": 41.7, "가전": 41.3, "IT": 100.0}, "sales": 65.8, "sales_prev": 61.8}, "7": {"ms": {"가전+IT": 44.1, "가전": 45.9, "IT": 10.4}, "ms_prev": {"가전+IT": 44.3, "가전": 44.1, "IT": 51.4}, "sales": 143.2, "sales_prev": 106.9}, "8": {"ms": {"가전+IT": 40.0, "가전": 40.1, "IT": 37.7}, "ms_prev": {"가전+IT": 46.6, "가전": 46.6, "IT": 45.1}, "sales": 104.9, "sales_prev": 167.7}}, "ms_prev_by_cat": {"가전+IT": 41.5, "가전": 41.5, "IT": 41.5}}, {"name": "인화점", "fullname": "하이마트 인화점", "ms": {"가전+IT": 44.9, "가전": 45.1, "IT": 14.1}, "lg": 717.7, "ss": 880.7, "sales": 83.1, "sales_prev": 92.8, "sales_yoy_pct": -10.4, "ms_prev": 49.6, "ms_yoy_pp": -4.7, "quadrant": "Q3_부진점", "months": {"1": {"ms": {"가전+IT": 27.2, "가전": 27.1, "IT": 33.0}, "ms_prev": {"가전+IT": 69.5, "가전": 70.3, "IT": 61.1}, "sales": 72.4, "sales_prev": 61.4}, "2": {"ms": {"가전+IT": 44.7, "가전": 46.7, "IT": 0.0}, "ms_prev": {"가전+IT": 48.9, "가전": 48.1, "IT": 56.1}, "sales": 22.6, "sales_prev": 54.8}, "3": {"ms": {"가전+IT": 42.6, "가전": 42.6, "IT": null}, "ms_prev": {"가전+IT": 58.4, "가전": 55.9, "IT": 83.2}, "sales": 58.9, "sales_prev": 57.3}, "4": {"ms": {"가전+IT": 40.0, "가전": 40.1, "IT": 0.0}, "ms_prev": {"가전+IT": 59.4, "가전": 59.8, "IT": 47.6}, "sales": 63.2, "sales_prev": 73.0}, "5": {"ms": {"가전+IT": 52.9, "가전": 53.3, "IT": 0.0}, "ms_prev": {"가전+IT": 52.8, "가전": 51.8, "IT": 90.4}, "sales": 63.5, "sales_prev": 81.3}, "6": {"ms": {"가전+IT": 39.6, "가전": 39.6, "IT": null}, "ms_prev": {"가전+IT": 59.1, "가전": 58.9, "IT": 67.3}, "sales": 66.6, "sales_prev": 77.2}, "7": {"ms": {"가전+IT": 47.9, "가전": 47.9, "IT": null}, "ms_prev": {"가전+IT": 56.5, "가전": 56.2, "IT": 100.0}, "sales": 136.1, "sales_prev": 55.8}, "8": {"ms": {"가전+IT": 67.4, "가전": 67.4, "IT": null}, "ms_prev": {"가전+IT": 45.2, "가전": 45.5, "IT": 0.0}, "sales": 181.8, "sales_prev": 281.9}}, "ms_prev_by_cat": {"가전+IT": 56.2, "가전": 55.8, "IT": 63.2}}, {"name": "인후점", "fullname": "하이마트 인후점", "ms": {"가전+IT": 52.0, "가전": 51.7, "IT": 56.4}, "lg": 778.5, "ss": 719.6, "sales": 78.2, "sales_prev": 117.0, "sales_yoy_pct": -33.2, "ms_prev": 53.5, "ms_yoy_pp": -1.5, "quadrant": "Q4_틈새점", "months": {"1": {"ms": {"가전+IT": 62.6, "가전": 60.7, "IT": 91.4}, "ms_prev": {"가전+IT": 54.3, "가전": 52.8, "IT": 63.9}, "sales": 82.0, "sales_prev": 62.2}, "2": {"ms": {"가전+IT": 51.0, "가전": 47.8, "IT": 68.3}, "ms_prev": {"가전+IT": 60.0, "가전": 59.2, "IT": 71.2}, "sales": 59.8, "sales_prev": 86.8}, "3": {"ms": {"가전+IT": 48.5, "가전": 44.7, "IT": 62.2}, "ms_prev": {"가전+IT": 51.4, "가전": 49.7, "IT": 68.3}, "sales": 71.3, "sales_prev": 116.5}, "4": {"ms": {"가전+IT": 43.9, "가전": 43.9, "IT": 44.9}, "ms_prev": {"가전+IT": 58.6, "가전": 58.0, "IT": 96.5}, "sales": 42.3, "sales_prev": 123.0}, "5": {"ms": {"가전+IT": 57.8, "가전": 58.1, "IT": 43.5}, "ms_prev": {"가전+IT": 54.3, "가전": 53.7, "IT": 68.1}, "sales": 76.0, "sales_prev": 164.9}, "6": {"ms": {"가전+IT": 31.8, "가전": 32.3, "IT": 19.5}, "ms_prev": {"가전+IT": 57.9, "가전": 56.8, "IT": 89.6}, "sales": 59.5, "sales_prev": 97.7}, "7": {"ms": {"가전+IT": 52.8, "가전": 53.9, "IT": 32.4}, "ms_prev": {"가전+IT": 54.8, "가전": 55.4, "IT": 0.0}, "sales": 118.1, "sales_prev": 156.4}, "8": {"ms": {"가전+IT": 62.1, "가전": 62.7, "IT": 36.1}, "ms_prev": {"가전+IT": 60.5, "가전": 61.0, "IT": 44.0}, "sales": 116.3, "sales_prev": 128.8}}, "ms_prev_by_cat": {"가전+IT": 56.5, "가전": 55.8, "IT": 62.7}}, {"name": "전주롯데마트점", "fullname": "하이마트 전주롯데마트점", "ms": {"가전+IT": 43.6, "가전": 43.4, "IT": 44.9}, "lg": 309.5, "ss": 400.6, "sales": 31.6, "sales_prev": 49.5, "sales_yoy_pct": -36.2, "ms_prev": 57.0, "ms_yoy_pp": -13.4, "quadrant": "Q3_부진점", "months": {"1": {"ms": {"가전+IT": 67.6, "가전": 62.3, "IT": 82.1}, "ms_prev": {"가전+IT": 59.4, "가전": 62.3, "IT": 48.2}, "sales": 27.9, "sales_prev": 42.5}, "2": {"ms": {"가전+IT": 40.5, "가전": 38.8, "IT": 44.0}, "ms_prev": {"가전+IT": 58.3, "가전": 58.9, "IT": 55.9}, "sales": 26.3, "sales_prev": 32.9}, "3": {"ms": {"가전+IT": 51.2, "가전": 47.7, "IT": 58.1}, "ms_prev": {"가전+IT": 54.2, "가전": 58.9, "IT": 34.3}, "sales": 25.6, "sales_prev": 51.2}, "4": {"ms": {"가전+IT": 37.3, "가전": 39.8, "IT": 19.4}, "ms_prev": {"가전+IT": 73.6, "가전": 70.9, "IT": 91.9}, "sales": 26.8, "sales_prev": 39.8}, "5": {"ms": {"가전+IT": 47.1, "가전": 45.9, "IT": 72.9}, "ms_prev": {"가전+IT": 55.8, "가전": 49.8, "IT": 100.0}, "sales": 28.9, "sales_prev": 46.7}, "6": {"ms": {"가전+IT": 32.4, "가전": 36.4, "IT": 4.3}, "ms_prev": {"가전+IT": 53.2, "가전": 52.8, "IT": 58.5}, "sales": 23.8, "sales_prev": 48.9}, "7": {"ms": {"가전+IT": 25.7, "가전": 26.3, "IT": 16.0}, "ms_prev": {"가전+IT": 61.2, "가전": 61.3, "IT": 30.3}, "sales": 46.1, "sales_prev": 81.4}, "8": {"ms": {"가전+IT": 67.3, "가전": 68.5, "IT": 55.9}, "ms_prev": {"가전+IT": 43.5, "가전": 45.9, "IT": 22.8}, "sales": 47.1, "sales_prev": 52.8}}, "ms_prev_by_cat": {"가전+IT": 57.4, "가전": 57.6, "IT": 55.2}}, {"name": "정읍점", "fullname": "하이마트 정읍점", "ms": {"가전+IT": 58.0, "가전": 58.4, "IT": 50.6}, "lg": 1418.0, "ss": 1026.2, "sales": 137.0, "sales_prev": 110.7, "sales_yoy_pct": 23.7, "ms_prev": 58.3, "ms_yoy_pp": -0.3, "quadrant": "Q1_우량점", "months": {"1": {"ms": {"가전+IT": 55.0, "가전": 54.8, "IT": 58.4}, "ms_prev": {"가전+IT": 43.3, "가전": 42.6, "IT": 48.4}, "sales": 124.3, "sales_prev": 53.1}, "2": {"ms": {"가전+IT": 51.2, "가전": 50.3, "IT": 56.7}, "ms_prev": {"가전+IT": 57.0, "가전": 62.0, "IT": 30.1}, "sales": 115.8, "sales_prev": 73.9}, "3": {"ms": {"가전+IT": 65.8, "가전": 68.1, "IT": 47.8}, "ms_prev": {"가전+IT": 56.0, "가전": 55.4, "IT": 64.2}, "sales": 103.3, "sales_prev": 121.4}, "4": {"ms": {"가전+IT": 40.8, "가전": 41.3, "IT": 28.8}, "ms_prev": {"가전+IT": 53.9, "가전": 54.9, "IT": 29.0}, "sales": 87.7, "sales_prev": 91.6}, "5": {"ms": {"가전+IT": 61.2, "가전": 60.8, "IT": 71.8}, "ms_prev": {"가전+IT": 56.0, "가전": 56.5, "IT": 45.3}, "sales": 127.8, "sales_prev": 105.8}, "6": {"ms": {"가전+IT": 37.2, "가전": 37.1, "IT": 43.6}, "ms_prev": {"가전+IT": 55.9, "가전": 56.5, "IT": 36.4}, "sales": 88.0, "sales_prev": 143.3}, "7": {"ms": {"가전+IT": 71.3, "가전": 72.5, "IT": 27.8}, "ms_prev": {"가전+IT": 62.7, "가전": 62.8, "IT": 54.5}, "sales": 266.2, "sales_prev": 189.3}, "8": {"ms": {"가전+IT": 70.3, "가전": 70.5, "IT": 48.1}, "ms_prev": {"가전+IT": 62.5, "가전": 62.7, "IT": 48.8}, "sales": 182.6, "sales_prev": 107.5}}, "ms_prev_by_cat": {"가전+IT": 55.9, "가전": 56.7, "IT": 44.6}}, {"name": "조례점", "fullname": "하이마트 조례점", "ms": {"가전+IT": 51.0, "가전": 51.0, "IT": 51.9}, "lg": 2338.6, "ss": 2244.5, "sales": 240.7, "sales_prev": 275.8, "sales_yoy_pct": -12.7, "ms_prev": 57.4, "ms_yoy_pp": -6.4, "quadrant": "Q1_우량점", "months": {"1": {"ms": {"가전+IT": 55.2, "가전": 54.7, "IT": 61.4}, "ms_prev": {"가전+IT": 69.6, "가전": 70.5, "IT": 48.6}, "sales": 234.9, "sales_prev": 359.7}, "2": {"ms": {"가전+IT": 51.4, "가전": 51.7, "IT": 47.9}, "ms_prev": {"가전+IT": 51.8, "가전": 51.6, "IT": 55.8}, "sales": 175.2, "sales_prev": 299.4}, "3": {"ms": {"가전+IT": 50.9, "가전": 50.5, "IT": 55.5}, "ms_prev": {"가전+IT": 65.6, "가전": 65.8, "IT": 59.8}, "sales": 192.3, "sales_prev": 255.4}, "4": {"ms": {"가전+IT": 65.4, "가전": 65.6, "IT": 54.5}, "ms_prev": {"가전+IT": 61.7, "가전": 62.1, "IT": 41.4}, "sales": 221.5, "sales_prev": 163.5}, "5": {"ms": {"가전+IT": 51.3, "가전": 51.1, "IT": 57.4}, "ms_prev": {"가전+IT": 65.5, "가전": 65.1, "IT": 80.9}, "sales": 314.1, "sales_prev": 284.0}, "6": {"ms": {"가전+IT": 32.0, "가전": 31.3, "IT": 50.3}, "ms_prev": {"가전+IT": 60.4, "가전": 60.4, "IT": 60.2}, "sales": 202.4, "sales_prev": 267.9}, "7": {"ms": {"가전+IT": 54.8, "가전": 55.4, "IT": 37.6}, "ms_prev": {"가전+IT": 57.4, "가전": 58.0, "IT": 37.4}, "sales": 341.9, "sales_prev": 308.4}, "8": {"ms": {"가전+IT": 51.4, "가전": 51.4, "IT": 50.7}, "ms_prev": {"가전+IT": 60.3, "가전": 60.8, "IT": 50.3}, "sales": 243.2, "sales_prev": 268.3}}, "ms_prev_by_cat": {"가전+IT": 61.5, "가전": 61.8, "IT": 54.3}}, {"name": "첨단점", "fullname": "하이마트 첨단점", "ms": {"가전+IT": 46.4, "가전": 46.2, "IT": 52.8}, "lg": 2122.8, "ss": 2449.6, "sales": 243.8, "sales_prev": 292.9, "sales_yoy_pct": -16.8, "ms_prev": 56.1, "ms_yoy_pp": -9.7, "quadrant": "Q2_기회점", "months": {"1": {"ms": {"가전+IT": 58.4, "가전": 57.8, "IT": 71.1}, "ms_prev": {"가전+IT": 56.5, "가전": 59.5, "IT": 19.7}, "sales": 155.6, "sales_prev": 250.8}, "2": {"ms": {"가전+IT": 48.8, "가전": 48.3, "IT": 58.7}, "ms_prev": {"가전+IT": 48.5, "가전": 51.2, "IT": 29.3}, "sales": 269.8, "sales_prev": 131.0}, "3": {"ms": {"가전+IT": 52.2, "가전": 51.0, "IT": 63.6}, "ms_prev": {"가전+IT": 39.6, "가전": 39.3, "IT": 43.6}, "sales": 229.1, "sales_prev": 184.3}, "4": {"ms": {"가전+IT": 51.4, "가전": 50.7, "IT": 81.3}, "ms_prev": {"가전+IT": 46.8, "가전": 47.4, "IT": 30.1}, "sales": 215.8, "sales_prev": 263.8}, "5": {"ms": {"가전+IT": 50.2, "가전": 49.8, "IT": 64.9}, "ms_prev": {"가전+IT": 55.0, "가전": 55.2, "IT": 49.0}, "sales": 191.5, "sales_prev": 502.3}, "6": {"ms": {"가전+IT": 36.0, "가전": 36.2, "IT": 26.9}, "ms_prev": {"가전+IT": 59.9, "가전": 61.0, "IT": 32.4}, "sales": 183.8, "sales_prev": 355.2}, "7": {"ms": {"가전+IT": 42.6, "가전": 43.3, "IT": 0.0}, "ms_prev": {"가전+IT": 63.8, "가전": 64.2, "IT": 41.7}, "sales": 399.9, "sales_prev": 377.9}, "8": {"ms": {"가전+IT": 44.9, "가전": 44.9, "IT": 39.7}, "ms_prev": {"가전+IT": 61.0, "가전": 61.5, "IT": 49.2}, "sales": 304.9, "sales_prev": 277.9}}, "ms_prev_by_cat": {"가전+IT": 53.9, "가전": 54.9, "IT": 36.9}}, {"name": "하당점", "fullname": "하이마트 하당점", "ms": {"가전+IT": 49.4, "가전": 48.9, "IT": 58.9}, "lg": 700.6, "ss": 717.4, "sales": 73.1, "sales_prev": 120.5, "sales_yoy_pct": -39.3, "ms_prev": 56.9, "ms_yoy_pp": -7.5, "quadrant": "Q4_틈새점", "months": {"1": {"ms": {"가전+IT": 60.7, "가전": 61.6, "IT": 52.3}, "ms_prev": {"가전+IT": 68.4, "가전": 69.4, "IT": 59.1}, "sales": 71.1, "sales_prev": 92.8}, "2": {"ms": {"가전+IT": 61.0, "가전": 59.3, "IT": 67.2}, "ms_prev": {"가전+IT": 58.8, "가전": 59.4, "IT": 54.2}, "sales": 51.9, "sales_prev": 96.8}, "3": {"ms": {"가전+IT": 58.1, "가전": 56.6, "IT": 66.0}, "ms_prev": {"가전+IT": 65.5, "가전": 65.4, "IT": 67.0}, "sales": 69.6, "sales_prev": 139.1}, "4": {"ms": {"가전+IT": 43.4, "가전": 43.6, "IT": 39.7}, "ms_prev": {"가전+IT": 55.5, "가전": 55.4, "IT": 58.6}, "sales": 49.7, "sales_prev": 124.5}, "5": {"ms": {"가전+IT": 39.6, "가전": 39.1, "IT": 63.6}, "ms_prev": {"가전+IT": 53.9, "가전": 54.9, "IT": 23.6}, "sales": 56.5, "sales_prev": 138.3}, "6": {"ms": {"가전+IT": 30.4, "가전": 30.6, "IT": 11.3}, "ms_prev": {"가전+IT": 49.7, "가전": 48.9, "IT": 76.6}, "sales": 47.0, "sales_prev": 122.6}, "7": {"ms": {"가전+IT": 55.0, "가전": 54.8, "IT": 84.5}, "ms_prev": {"가전+IT": 60.1, "가전": 59.9, "IT": 85.4}, "sales": 151.0, "sales_prev": 152.0}, "8": {"ms": {"가전+IT": 54.9, "가전": 55.1, "IT": 47.3}, "ms_prev": {"가전+IT": 49.4, "가전": 50.0, "IT": 29.6}, "sales": 88.2, "sales_prev": 97.6}}, "ms_prev_by_cat": {"가전+IT": 57.7, "가전": 57.9, "IT": 56.8}}, {"name": "화순점", "fullname": "하이마트 화순점", "ms": {"가전+IT": 46.4, "가전": 44.7, "IT": 74.1}, "lg": 467.1, "ss": 539.3, "sales": 48.0, "sales_prev": 31.9, "sales_yoy_pct": 50.6, "ms_prev": 55.5, "ms_yoy_pp": -9.1, "quadrant": "Q3_부진점", "months": {"1": {"ms": {"가전+IT": 38.6, "가전": 34.5, "IT": 81.7}, "ms_prev": {"가전+IT": 65.0, "가전": 67.8, "IT": 42.6}, "sales": 41.3, "sales_prev": 15.7}, "2": {"ms": {"가전+IT": 44.8, "가전": 37.9, "IT": 100.0}, "ms_prev": {"가전+IT": 56.4, "가전": 54.4, "IT": 84.7}, "sales": 29.2, "sales_prev": 22.0}, "3": {"ms": {"가전+IT": 49.1, "가전": 45.7, "IT": 83.8}, "ms_prev": {"가전+IT": 53.8, "가전": 56.8, "IT": 35.5}, "sales": 37.1, "sales_prev": 26.8}, "4": {"ms": {"가전+IT": 50.9, "가전": 50.4, "IT": 100.0}, "ms_prev": {"가전+IT": 59.7, "가전": 60.6, "IT": 39.6}, "sales": 39.1, "sales_prev": 36.2}, "5": {"ms": {"가전+IT": 45.2, "가전": 45.2, "IT": 43.2}, "ms_prev": {"가전+IT": 43.5, "가전": 45.6, "IT": 5.8}, "sales": 45.3, "sales_prev": 17.6}, "6": {"ms": {"가전+IT": 29.7, "가전": 29.4, "IT": 36.6}, "ms_prev": {"가전+IT": 47.2, "가전": 48.7, "IT": 9.5}, "sales": 31.8, "sales_prev": 28.6}, "7": {"ms": {"가전+IT": 50.9, "가전": 50.9, "IT": 50.4}, "ms_prev": {"가전+IT": 65.8, "가전": 66.1, "IT": 46.3}, "sales": 100.6, "sales_prev": 83.6}, "8": {"ms": {"가전+IT": 68.3, "가전": 66.5, "IT": 96.3}, "ms_prev": {"가전+IT": 42.7, "가전": 43.4, "IT": 12.1}, "sales": 60.1, "sales_prev": 24.7}}, "ms_prev_by_cat": {"가전+IT": 54.3, "가전": 55.4, "IT": 34.5}}, {"name": "효자점", "fullname": "하이마트 효자점", "ms": {"가전+IT": 43.5, "가전": 43.5, "IT": 43.9}, "lg": 2229.5, "ss": 2897.3, "sales": 259.8, "sales_prev": 268.4, "sales_yoy_pct": -3.2, "ms_prev": 46.8, "ms_yoy_pp": -3.3, "quadrant": "Q2_기회점", "months": {"1": {"ms": {"가전+IT": 52.9, "가전": 53.1, "IT": 50.6}, "ms_prev": {"가전+IT": 48.3, "가전": 48.0, "IT": 51.9}, "sales": 198.0, "sales_prev": 142.2}, "2": {"ms": {"가전+IT": 46.7, "가전": 47.2, "IT": 41.4}, "ms_prev": {"가전+IT": 42.1, "가전": 41.5, "IT": 45.7}, "sales": 251.1, "sales_prev": 147.6}, "3": {"ms": {"가전+IT": 59.3, "가전": 58.3, "IT": 73.6}, "ms_prev": {"가전+IT": 38.7, "가전": 39.3, "IT": 33.4}, "sales": 190.4, "sales_prev": 167.9}, "4": {"ms": {"가전+IT": 49.7, "가전": 50.0, "IT": 43.2}, "ms_prev": {"가전+IT": 40.8, "가전": 40.1, "IT": 65.7}, "sales": 231.1, "sales_prev": 146.4}, "5": {"ms": {"가전+IT": 44.9, "가전": 44.9, "IT": 45.5}, "ms_prev": {"가전+IT": 44.8, "가전": 44.8, "IT": 47.4}, "sales": 221.7, "sales_prev": 94.4}, "6": {"ms": {"가전+IT": 26.8, "가전": 27.4, "IT": 8.1}, "ms_prev": {"가전+IT": 44.5, "가전": 44.6, "IT": 41.8}, "sales": 278.6, "sales_prev": 871.6}, "7": {"ms": {"가전+IT": 43.5, "가전": 44.1, "IT": 29.8}, "ms_prev": {"가전+IT": 46.4, "가전": 46.7, "IT": 22.9}, "sales": 356.9, "sales_prev": 278.9}, "8": {"ms": {"가전+IT": 39.3, "가전": 38.4, "IT": 64.1}, "ms_prev": {"가전+IT": 51.3, "가전": 51.7, "IT": 38.0}, "sales": 350.3, "sales_prev": 297.8}}, "ms_prev_by_cat": {"가전+IT": 44.6, "가전": 44.6, "IT": 43.3}}, {"name": "효천점", "fullname": "하이마트 효천점", "ms": {"가전+IT": 43.6, "가전": 44.1, "IT": 35.6}, "lg": 822.5, "ss": 1064.0, "sales": 80.4, "sales_prev": 138.1, "sales_yoy_pct": -41.8, "ms_prev": 54.4, "ms_yoy_pp": -10.8, "quadrant": "Q3_부진점", "months": {"1": {"ms": {"가전+IT": 57.8, "가전": 57.8, "IT": 57.0}, "ms_prev": {"가전+IT": 64.9, "가전": 65.2, "IT": 61.7}, "sales": 100.3, "sales_prev": 64.7}, "2": {"ms": {"가전+IT": 44.5, "가전": 43.4, "IT": 53.9}, "ms_prev": {"가전+IT": 59.2, "가전": 59.5, "IT": 56.0}, "sales": 70.8, "sales_prev": 262.1}, "3": {"ms": {"가전+IT": 64.7, "가전": 66.4, "IT": 49.2}, "ms_prev": {"가전+IT": 46.2, "가전": 46.0, "IT": 48.9}, "sales": 80.8, "sales_prev": 94.7}, "4": {"ms": {"가전+IT": 33.2, "가전": 35.4, "IT": 0.0}, "ms_prev": {"가전+IT": 54.0, "가전": 54.5, "IT": 42.0}, "sales": 51.0, "sales_prev": 107.2}, "5": {"ms": {"가전+IT": 56.9, "가전": 57.1, "IT": 53.7}, "ms_prev": {"가전+IT": 53.0, "가전": 52.8, "IT": 65.7}, "sales": 72.7, "sales_prev": 150.7}, "6": {"ms": {"가전+IT": 19.1, "가전": 19.7, "IT": 5.9}, "ms_prev": {"가전+IT": 51.6, "가전": 52.5, "IT": 36.2}, "sales": 43.2, "sales_prev": 132.9}, "7": {"ms": {"가전+IT": 37.0, "가전": 37.6, "IT": 19.4}, "ms_prev": {"가전+IT": 57.6, "가전": 57.6, "IT": 56.9}, "sales": 115.8, "sales_prev": 156.3}, "8": {"ms": {"가전+IT": 54.3, "가전": 55.1, "IT": 27.0}, "ms_prev": {"가전+IT": 50.9, "가전": 51.0, "IT": 45.9}, "sales": 108.3, "sales_prev": 136.0}}, "ms_prev_by_cat": {"가전+IT": 54.7, "가전": 54.9, "IT": 51.7}}], "excluded": {"no_2026_sales": ["광양LF스퀘어점", "남원롯데마트점", "부송점", "부안점", "상무롯데마트점", "송천롯데마트점", "수완롯데마트점", "정읍롯데마트점"], "no_ms_data": ["목포롯데마트점"], "near_zero": ["영등점"]}, "meta": {"n_total_open": 43, "n_analyzed": 33, "period": "2026년 1~8월 누적", "team": "혼매호남팀"}, "team_ms_trend_jan_aug": {"2024": 57.4, "2025": 54.1, "2026": 48.8}};
+
+const root = document.documentElement;
+function isDark(){
+  const stamp = root.getAttribute('data-theme');
+  if(stamp === 'dark') return true;
+  if(stamp === 'light') return false;
+  return window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+function cssVar(name){ return getComputedStyle(document.body).getPropertyValue(name).trim(); }
+
+let currentCat = '가전+IT';
+let currentPeriod = 'avg'; // 'avg' | '1'..'8'
+let selectedStores = new Set();
+
+// ---------- Data accessors (period + category aware) ----------
+function getMS(s, period, cat){
+  if(period === 'avg') return s.ms[cat] ?? null;
+  const m = s.months[period];
+  return (m && m.ms) ? (m.ms[cat] ?? null) : null;
+}
+function getMSPrev(s, period, cat){
+  if(period === 'avg') return s.ms_prev_by_cat[cat] ?? null;
+  const m = s.months[period];
+  return (m && m.ms_prev) ? (m.ms_prev[cat] ?? null) : null;
+}
+function getSales(s, period){
+  if(period === 'avg') return s.sales;
+  const m = s.months[period];
+  return m ? m.sales : null;
+}
+function getSalesPrev(s, period){
+  if(period === 'avg') return s.sales_prev;
+  const m = s.months[period];
+  return m ? m.sales_prev : null;
+}
+function periodLabel(period){ return period === 'avg' ? '1~8월 평균' : period+'월'; }
+
+function computeStats(period, cat){
+  const rows = DATA.stores.map(s=>{
+    const ms = getMS(s, period, cat);
+    const sales = getSales(s, period);
+    const msPrev = getMSPrev(s, period, cat);
+    const salesPrev = getSalesPrev(s, period);
+    return {
+      s, ms, sales,
+      msYoy: (ms!=null && msPrev!=null) ? +(ms-msPrev).toFixed(1) : null,
+      salesYoy: (sales!=null && salesPrev!=null && salesPrev!==0) ? +((sales-salesPrev)/salesPrev*100).toFixed(1) : null,
+      valid: ms!=null && sales!=null,
+    };
+  });
+  const valid = rows.filter(r=>r.valid);
+  const msMean = valid.reduce((a,r)=>a+r.ms,0)/valid.length;
+  const salesMean = valid.reduce((a,r)=>a+r.sales,0)/valid.length;
+  valid.forEach(r=>{
+    const highMs = r.ms >= msMean, highSales = r.sales >= salesMean;
+    r.quadrant = highMs && highSales ? 'Q1_우량점' : (!highMs && highSales) ? 'Q2_기회점' : (!highMs && !highSales) ? 'Q3_부진점' : 'Q4_틈새점';
+  });
+  return {rows, valid, msMean, salesMean, invalidCount: rows.length - valid.length};
+}
+
+// ---------- Store selection (share-of-total highlight, multi-select) ----------
+function selectStore(name){
+  const adding = !selectedStores.has(name);
+  if(adding) selectedStores.add(name); else selectedStores.delete(name);
+  renderAll();
+  if(adding){
+    const row = document.querySelector(`#shareTable tbody tr[data-store="${CSS.escape(name)}"]`);
+    if(row) row.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+}
+function clearAllSelected(){
+  selectedStores.clear();
+  renderAll();
+}
+document.addEventListener('click', (e)=>{
+  const cell = e.target.closest('.store-name');
+  if(cell) selectStore(cell.textContent.trim());
+});
+
+// ---------- KPI ----------
+function fmtSigned(v, digits=1, suffix=''){
+  const s = v>0 ? '+' : '';
+  return s + v.toFixed(digits) + suffix;
+}
+function renderKPI(stats){
+  const n = stats.valid.length;
+  const downMsCount = stats.valid.filter(r=>r.msYoy!=null && r.msYoy<0).length;
+  const downSalesCount = stats.valid.filter(r=>r.salesYoy!=null && r.salesYoy<0).length;
+  const q3 = stats.valid.filter(r=>r.quadrant==='Q3_부진점').length;
+  const q2 = stats.valid.filter(r=>r.quadrant==='Q2_기회점').length;
+  const pLabel = periodLabel(currentPeriod);
+
+  const items = [
+    {label:'분석 대상 지점', value:n+'개', delta:'전체 오픈 43개 중', cls:'flat'},
+    {label:`평균 M/S (${pLabel}, ${currentCat})`, value:stats.msMean.toFixed(1)+'%', delta:'분석대상 지점 평균', cls:'flat'},
+    {label:'M/S 하락 지점', value:downMsCount+' / '+n, delta:'전년 동기 대비', cls:'down'},
+    {label:'총판금액 하락 지점', value:downSalesCount+' / '+n, delta:'전년 동기 대비', cls:'down'},
+    {label:'부진점 · 기회점', value:q3+' · '+q2+'개', delta:'M/S 평균 이하', cls:'flat'},
+  ];
+  const el = document.getElementById('kpiRow');
+  el.innerHTML = items.map(it=>`
+    <div class="kpi">
+      <div class="label">${it.label}</div>
+      <div class="value">${it.value}</div>
+      <div class="delta ${it.cls}">${it.delta}</div>
+    </div>`).join('');
+}
+
+// ---------- Quadrant cards ----------
+const QUAD_META = {
+  'Q1_우량점': {title:'Q1 · 우량점', desc:'M/S·총판금액 모두 평균 이상. 현재 강점 유지가 핵심.', cls:'good'},
+  'Q2_기회점': {title:'Q2 · 기회점', desc:'시장(총판)은 크지만 M/S가 낮음. 개선 시 임팩트가 가장 큰 우선 투자 대상.', cls:'warning'},
+  'Q3_부진점': {title:'Q3 · 부진점', desc:'M/S·총판금액 모두 평균 이하. 구조적 열위 지점.', cls:'critical'},
+  'Q4_틈새점': {title:'Q4 · 틈새점', desc:'M/S는 높으나 시장(총판) 규모가 작음. 안정적 관리 대상.', cls:'neutral'},
+};
+function renderQuadCards(stats){
+  const groups = {};
+  stats.valid.forEach(r=>{ (groups[r.quadrant] = groups[r.quadrant] || []).push(r); });
+  const order = ['Q1_우량점','Q2_기회점','Q3_부진점','Q4_틈새점'];
+  const el = document.getElementById('quadCards');
+  el.innerHTML = order.map(k=>{
+    const m = QUAD_META[k];
+    const rows = (groups[k]||[]).slice().sort((a,b)=>b.sales-a.sales);
+    const names = rows.map(r=>
+      `<span class="store-name qstore${selectedStores.has(r.s.name)?' qstore-selected':''}">${r.s.name}</span>`
+    ).join('<span class="qstore-sep">, </span>');
+    return `<div class="qcard ${m.cls}">
+      <div class="qn">${rows.length}개</div>
+      <div class="qt">${m.title}</div>
+      <div class="qd">${m.desc}</div>
+      <div class="qstores">${names}</div>
+    </div>`;
+  }).join('');
+}
+
+// ---------- Scatter chart ----------
+const svgNS = 'http://www.w3.org/2000/svg';
+function el(tag, attrs, parent){
+  const e = document.createElementNS(svgNS, tag);
+  for(const k in attrs) e.setAttribute(k, attrs[k]);
+  if(parent) parent.appendChild(e);
+  return e;
+}
+
+const chartPad = {l:66, r:20, t:18, b:40};
+const chartW = 680, chartH = 620;
+const plotW = chartW - chartPad.l - chartPad.r;
+const plotH = chartH - chartPad.t - chartPad.b;
+
+function niceStep(maxVal, targetTicks){
+  const raw = Math.max(maxVal,1e-6) / targetTicks;
+  const mag = Math.pow(10, Math.floor(Math.log10(raw)));
+  const norm = raw / mag;
+  let step;
+  if(norm <= 1) step = 1;
+  else if(norm <= 2) step = 2;
+  else if(norm <= 5) step = 5;
+  else step = 10;
+  return step * mag;
+}
+function niceDomain(lo, hi){
+  const span = Math.max(hi-lo, 1e-6);
+  const padAmt = Math.max(span*0.12, 2);
+  const step = niceStep(span+padAmt*2, 6);
+  const dlo = Math.floor((lo-padAmt)/step)*step;
+  const dhi = Math.ceil((hi+padAmt)/step)*step;
+  return [dlo, dhi, step];
+}
+function xScale(v, xDom){ const [a,b]=xDom; return chartPad.l + (v-a)/(b-a)*plotW; }
+function yScale(v, yDom){ const [a,b]=yDom; return chartPad.t + plotH - (v-a)/(b-a)*plotH; }
+
+function divergeColor(v){
+  if(v==null) return cssVar('--diverge-mid') || '#c3c2b7';
+  const t = Math.max(-15, Math.min(15, v)) / 15; // -1..1
+  const pos = cssVar('--diverge-pos') || '#2a78d6';
+  const neg = cssVar('--diverge-neg') || '#e34948';
+  const mid = cssVar('--diverge-mid') || '#c3c2b7';
+  function hex2rgb(h){ h=h.replace('#',''); return [parseInt(h.substr(0,2),16),parseInt(h.substr(2,2),16),parseInt(h.substr(4,2),16)]; }
+  function mix(c1,c2,f){ return c1.map((c,i)=>Math.round(c+(c2[i]-c)*f)); }
+  let rgb;
+  if(t>=0) rgb = mix(hex2rgb(mid), hex2rgb(pos), t);
+  else rgb = mix(hex2rgb(mid), hex2rgb(neg), -t);
+  return `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`;
+}
+
+// simple greedy label de-collision: returns {dx,dy} offset for each label box
+function layoutLabels(points){
+  // points: [{cx,cy,text}] -- approx text box width by char count
+  const placed = [];
+  const results = [];
+  const sorted = points.map((p,i)=>({...p, i})).sort((a,b)=>a.cy-b.cy || a.cx-b.cx);
+  const candidates = [
+    {dx:0, dy:-10}, {dx:0, dy:13}, {dx:0, dy:-19}, {dx:0, dy:22},
+    {dx:15, dy:-9}, {dx:-15, dy:-9}, {dx:15, dy:11}, {dx:-15, dy:11},
+    {dx:0, dy:-28}, {dx:0, dy:31},
+    {dx:22, dy:-18}, {dx:-22, dy:-18}, {dx:22, dy:20}, {dx:-22, dy:20},
+    {dx:0, dy:-37}, {dx:0, dy:40}, {dx:26, dy:2}, {dx:-26, dy:2},
+  ];
+  sorted.forEach(p=>{
+    const w = p.text.length*4.9 + 4, h = 9;
+    let chosen = candidates[0];
+    for(const c of candidates){
+      const bx1 = p.cx + c.dx - w/2, bx2 = p.cx + c.dx + w/2;
+      const by1 = p.cy + c.dy - h/2, by2 = p.cy + c.dy + h/2;
+      const collide = placed.some(b => !(bx2 < b.x1 || bx1 > b.x2 || by2 < b.y1 || by1 > b.y2));
+      if(!collide){ chosen = c; break; }
+    }
+    const bx1 = p.cx + chosen.dx - w/2, bx2 = p.cx + chosen.dx + w/2;
+    const by1 = p.cy + chosen.dy - h/2, by2 = p.cy + chosen.dy + h/2;
+    placed.push({x1:bx1,x2:bx2,y1:by1,y2:by2});
+    results[p.i] = chosen;
+  });
+  return results;
+}
+
+function renderScatter(stats){
+  const svg = document.getElementById('scatter');
+  svg.setAttribute('viewBox', `0 0 ${chartW} ${chartH}`);
+  svg.innerHTML = '';
+
+  const msVals = stats.valid.map(r=>r.ms);
+  const salesVals = stats.valid.map(r=>r.sales);
+  const xDom = niceDomain(Math.min(...msVals), Math.max(...msVals));
+  const [y0,y1,yStep] = niceDomain(0, Math.max(...salesVals));
+  const yDom = [y0,y1];
+  const msMean = stats.msMean, salesMean = stats.salesMean;
+
+  // gridlines (y)
+  const yTicks = Math.round((y1-y0)/yStep);
+  for(let i=0;i<=yTicks;i++){
+    const val = y0 + yStep*i;
+    const yy = yScale(val, yDom);
+    el('line', {x1:chartPad.l, x2:chartW-chartPad.r, y1:yy, y2:yy, class:'gridline'}, svg);
+    el('text', {x:chartPad.l-10, y:yy+3, class:'axis-tick', 'text-anchor':'end'}, svg).textContent = Math.round(val).toLocaleString();
+  }
+  // x ticks
+  const xStep = xDom[2];
+  for(let v=xDom[0]; v<=xDom[1]+1e-6; v+=xStep){
+    const xx = xScale(v, xDom);
+    el('line', {x1:xx, x2:xx, y1:chartPad.t, y2:chartPad.t+plotH, class:'gridline'}, svg);
+    el('text', {x:xx, y:chartH-chartPad.b+18, class:'axis-tick', 'text-anchor':'middle'}, svg).textContent = Math.round(v)+'%';
+  }
+  const salesLabel = currentPeriod==='avg' ? '월평균 총판금액' : `${currentPeriod}월 총판금액`;
+  el('text', {x:chartPad.l+plotW/2, y:chartH-4, class:'axis-label', 'text-anchor':'middle'}, svg).textContent = `M/S 경쟁력 (${currentCat}, %) →`;
+  const ylab = el('text', {x:12, y:chartPad.t+plotH/2, class:'axis-label', 'text-anchor':'middle', transform:`rotate(-90 12 ${chartPad.t+plotH/2})`}, svg);
+  ylab.textContent = salesLabel+' →';
+
+  // mean lines
+  el('line', {x1:xScale(msMean,xDom), x2:xScale(msMean,xDom), y1:chartPad.t, y2:chartPad.t+plotH, class:'meanline'}, svg);
+  el('line', {x1:chartPad.l, x2:chartW-chartPad.r, y1:yScale(salesMean,yDom), y2:yScale(salesMean,yDom), class:'meanline'}, svg);
+
+  // quadrant labels
+  const qpos = [
+    {x:chartW-chartPad.r-6, y:chartPad.t+14, anchor:'end', t:'우량점'},
+    {x:chartPad.l+6, y:chartPad.t+14, anchor:'start', t:'기회점'},
+    {x:chartPad.l+6, y:chartH-chartPad.b-8, anchor:'start', t:'부진점'},
+    {x:chartW-chartPad.r-6, y:chartH-chartPad.b-8, anchor:'end', t:'틈새점'},
+  ];
+  qpos.forEach(q=>{ el('text', {x:q.x, y:q.y, class:'quad-label', 'text-anchor':q.anchor}, svg).textContent = q.t; });
+
+  const tooltip = document.getElementById('tooltip');
+  const chartWrap = document.getElementById('chartWrap');
+
+  const pts = stats.valid.map(r=>({
+    cx: xScale(r.ms, xDom), cy: yScale(r.sales, yDom), text: r.s.name, r
+  }));
+  const offsets = layoutLabels(pts);
+
+  pts.forEach((p, idx)=>{
+    const r = p.r;
+    const isSel = selectedStores.has(r.s.name);
+    const c = el('circle', {cx:p.cx, cy:p.cy, r:isSel?9:6, fill:divergeColor(r.msYoy), class:'dot'+(isSel?' dot-selected':'')}, svg);
+    if(isSel){ c.setAttribute('stroke', cssVar('--accent')); c.setAttribute('stroke-width','3'); }
+    c.addEventListener('click', ()=> selectStore(r.s.name));
+    c.addEventListener('mousemove', (ev)=>{
+      const rect = chartWrap.getBoundingClientRect();
+      tooltip.style.left = (ev.clientX-rect.left+12)+'px';
+      tooltip.style.top = (ev.clientY-rect.top-10)+'px';
+      tooltip.style.opacity = 1;
+      tooltip.innerHTML = `<b>${r.s.fullname}</b>
+        <div class="tt-row"><span>${periodLabel(currentPeriod)} M/S (${currentCat})</span><span>${r.ms.toFixed(1)}%</span></div>
+        <div class="tt-row"><span>${currentPeriod==='avg'?'월평균':currentPeriod+'월'} 총판금액</span><span>${r.sales.toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1})}</span></div>
+        <div class="tt-row"><span>M/S 전년동기 대비</span><span>${r.msYoy!=null ? fmtSigned(r.msYoy,1)+'%p' : '데이터 없음'}</span></div>
+        <div class="tt-row"><span>총판 전년동기 대비</span><span>${r.salesYoy!=null ? fmtSigned(r.salesYoy,1)+'%' : '데이터 없음'}</span></div>`;
+    });
+    c.addEventListener('mouseleave', ()=>{ tooltip.style.opacity = 0; });
+
+    const off = offsets[idx];
+    const label = el('text', {x:p.cx+off.dx, y:p.cy+off.dy+3, class:'dot-label'+(isSel?' dot-label-selected':''), 'text-anchor':'middle', style:'pointer-events:auto; cursor:pointer;'}, svg);
+    label.textContent = p.text;
+    label.addEventListener('click', ()=> selectStore(r.s.name));
+  });
+
+  const caveat = document.getElementById('dataCaveat');
+  if(stats.invalidCount > 0){
+    caveat.textContent = `선택한 기간·기준(${currentCat})의 M/S 데이터가 없는 지점 ${stats.invalidCount}곳은 이 차트에서 제외되었습니다 (표본 매출이 작아 비율 산출이 불안정한 달에 발생).`;
+  } else {
+    caveat.textContent = '';
+  }
+}
+
+// ---------- Priority table ----------
+let sortKey = 'sales', sortDir = -1;
+function renderTable(stats){
+  document.getElementById('salesHeader').textContent = currentPeriod==='avg' ? '월평균 총판금액' : currentPeriod+'월 총판금액';
+  const filtered = stats.valid.filter(r=>r.quadrant==='Q3_부진점' || r.quadrant==='Q2_기회점');
+  document.getElementById('tableSub').textContent = `M/S가 평균 이하인 ${filtered.length}개 지점 · 총판금액 큰 순 (${periodLabel(currentPeriod)} 기준)`;
+  const keyFn = {
+    name: r=>r.s.name, quadrant: r=>r.quadrant, ms: r=>r.ms,
+    ms_yoy_pp: r=>r.msYoy ?? -Infinity, sales: r=>r.sales, sales_yoy_pct: r=>r.salesYoy ?? -Infinity,
+  }[sortKey];
+  const rows = filtered.slice().sort((a,b)=> (keyFn(a) > keyFn(b) ? 1 : keyFn(a) < keyFn(b) ? -1 : 0) * sortDir);
+  const tbody = document.querySelector('#priorityTable tbody');
+  tbody.innerHTML = rows.map(r=>{
+    const tagCls = r.quadrant==='Q3_부진점' ? 'critical' : 'warning';
+    const tagTxt = r.quadrant==='Q3_부진점' ? '▼ 부진점' : '⚠ 기회점';
+    const rowCls = selectedStores.has(r.s.name) ? ' class="selected-row"' : '';
+    return `<tr data-store="${r.s.name}"${rowCls}>
+      <td class="store-name">${r.s.name}</td>
+      <td><span class="tag ${tagCls}">${tagTxt}</span></td>
+      <td>${r.ms.toFixed(1)}</td>
+      <td class="${r.msYoy==null?'':r.msYoy<0?'neg':'pos'}">${r.msYoy!=null?fmtSigned(r.msYoy,1):'–'}</td>
+      <td>${r.sales.toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1})}</td>
+      <td class="${r.salesYoy==null?'':r.salesYoy<0?'neg':'pos'}">${r.salesYoy!=null?fmtSigned(r.salesYoy,1)+'%':'–'}</td>
+    </tr>`;
+  }).join('');
+  document.querySelectorAll('#priorityTable th').forEach(th=>{
+    th.classList.toggle('sorted', th.dataset.key===sortKey);
+  });
+}
+document.querySelectorAll('#priorityTable th').forEach(th=>{
+  th.addEventListener('click', ()=>{
+    const key = th.dataset.key;
+    if(sortKey===key) sortDir *= -1; else sortDir = (key==='name'||key==='quadrant') ? 1 : -1;
+    sortKey = key;
+    renderAll();
+  });
+});
+
+// ---------- Full store sales-share table ----------
+let shareSortKey = 'sales', shareSortDir = -1;
+function renderShareTable(stats){
+  document.getElementById('shareSalesHeader').textContent = currentPeriod==='avg' ? '월평균 총판금액' : currentPeriod+'월 총판금액';
+  document.getElementById('shareTableSub').textContent =
+    `분석대상 ${stats.valid.length}개 지점 · 총판금액 큰 순 · 비중 = 선택 기간(${periodLabel(currentPeriod)}) 내 지점별 총판금액 ÷ ${stats.valid.length}개 지점 합계`;
+
+  const totalSales = stats.valid.reduce((a,r)=>a+r.sales,0);
+  const maxSales = Math.max(...stats.valid.map(r=>r.sales), 1e-6);
+
+  // rank & cumulative share are always computed on the sales-descending order,
+  // independent of how the table is currently sorted for display
+  const bySales = stats.valid.slice().sort((a,b)=>b.sales-a.sales);
+  const meta = new Map();
+  let cum = 0;
+  bySales.forEach((r,i)=>{
+    const share = totalSales>0 ? r.sales/totalSales*100 : 0;
+    cum += share;
+    meta.set(r.s.name, {rank:i+1, share, cum});
+  });
+
+  const keyFn = { name: r=>r.s.name, quadrant: r=>r.quadrant, sales: r=>r.sales }[shareSortKey];
+  const rows = stats.valid.slice().sort((a,b)=> (keyFn(a) > keyFn(b) ? 1 : keyFn(a) < keyFn(b) ? -1 : 0) * shareSortDir);
+
+  const tbody = document.querySelector('#shareTable tbody');
+  tbody.innerHTML = rows.map(r=>{
+    const m = meta.get(r.s.name);
+    const qShort = r.quadrant.split('_')[1];
+    const qCls = {'Q1_우량점':'good','Q2_기회점':'warning','Q3_부진점':'critical','Q4_틈새점':'neutral'}[r.quadrant];
+    const barPct = (r.sales/maxSales*100).toFixed(1);
+    const rowCls = selectedStores.has(r.s.name) ? ' class="selected-row"' : '';
+    return `<tr data-store="${r.s.name}"${rowCls}>
+      <td class="store-name">${r.s.name}</td>
+      <td style="text-align:right;">${m.rank}</td>
+      <td><span class="tag ${qCls}">${qShort}</span></td>
+      <td>${r.sales.toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1})}</td>
+      <td>
+        <div class="share-cell">
+          <div class="share-bar-track"><div class="share-bar-fill" style="width:${barPct}%"></div></div>
+          <span class="share-pct">${m.share.toFixed(1)}%</span>
+        </div>
+      </td>
+      <td>${m.cum.toFixed(1)}%</td>
+    </tr>`;
+  }).join('');
+
+  const infoBox = document.getElementById('selectedStoreInfo');
+  const selRows = stats.valid.filter(r=>selectedStores.has(r.s.name))
+    .sort((a,b)=> meta.get(a.s.name).rank - meta.get(b.s.name).rank);
+  if(selRows.length > 0){
+    const totalSalesSel = selRows.reduce((a,r)=>a+r.sales,0);
+    const combinedShare = totalSales>0 ? totalSalesSel/totalSales*100 : 0;
+    infoBox.style.display = 'flex';
+    const chips = selRows.map(r=>{
+      const m = meta.get(r.s.name);
+      return `<span class="sel-chip" data-store="${r.s.name}">
+        <b>${r.s.name}</b><span class="sel-chip-pct">${m.share.toFixed(1)}% · ${m.rank}위</span>
+        <button class="sel-chip-remove" type="button" data-remove="${r.s.name}">✕</button>
+      </span>`;
+    }).join('');
+    infoBox.innerHTML = `
+      <div class="sel-top">
+        <span class="sel-summary">선택 ${selRows.length}개 지점 합계 비중 <b>${combinedShare.toFixed(1)}%</b> · 총판금액 합계 ${totalSalesSel.toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1})}</span>
+        <button class="sel-clear-all" id="clearAllSelectedStores" type="button">전체 해제</button>
+      </div>
+      <div class="sel-chips">${chips}</div>
+    `;
+    document.getElementById('clearAllSelectedStores').addEventListener('click', (e)=>{ e.stopPropagation(); clearAllSelected(); });
+    infoBox.querySelectorAll('.sel-chip-remove').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{ e.stopPropagation(); selectStore(btn.dataset.remove); });
+    });
+  } else {
+    infoBox.style.display = 'none';
+    infoBox.innerHTML = '';
+  }
+
+  document.querySelectorAll('#shareTable th[data-key]').forEach(th=>{
+    th.classList.toggle('sorted', th.dataset.key===shareSortKey);
+  });
+
+  if(stats.invalidCount > 0){
+    document.getElementById('shareCaveat').textContent = `선택한 기간·기준(${currentCat})의 데이터가 없는 지점 ${stats.invalidCount}곳은 이 표에서 제외되었습니다.`;
+  } else {
+    document.getElementById('shareCaveat').textContent = '';
+  }
+}
+document.querySelectorAll('#shareTable th[data-key]').forEach(th=>{
+  th.addEventListener('click', ()=>{
+    const key = th.dataset.key;
+    if(shareSortKey===key) shareSortDir *= -1; else shareSortDir = (key==='name'||key==='quadrant') ? 1 : -1;
+    shareSortKey = key;
+    renderAll();
+  });
+});
+
+// ---------- Trend chart ----------
+function renderTrend(){
+  const svg = document.getElementById('trendSvg');
+  svg.innerHTML = '';
+  const w=360, h=190, pad={l:36,r:20,t:20,b:28};
+  const pw = w-pad.l-pad.r, ph = h-pad.t-pad.b;
+  const years = ['2024','2025','2026'];
+  const vals = years.map(y=>DATA.team_ms_trend_jan_aug[y]);
+  const yMin = 40, yMax = 60;
+  const xFor = i => pad.l + i/(years.length-1)*pw;
+  const yFor = v => pad.t + ph - (v-yMin)/(yMax-yMin)*ph;
+
+  // gridlines
+  [40,45,50,55,60].forEach(v=>{
+    const yy = yFor(v);
+    el('line', {x1:pad.l, x2:w-pad.r, y1:yy, y2:yy, class:'gridline'}, svg);
+    el('text', {x:pad.l-6, y:yy+3, class:'axis-tick', 'text-anchor':'end'}, svg).textContent=v+'%';
+  });
+  // 50% reference
+  const y50 = yFor(50);
+  el('line', {x1:pad.l, x2:w-pad.r, y1:y50, y2:y50, class:'meanline'}, svg);
+  el('text', {x:pad.l+2, y:y50-6, class:'axis-tick', 'text-anchor':'start'}, svg).textContent='50% 기준선(경쟁 우위 분기점)';
+
+  // line path
+  const pts = vals.map((v,i)=>[xFor(i), yFor(v)]);
+  const path = 'M'+pts.map(p=>p.join(',')).join(' L');
+  el('path', {d:path, fill:'none', stroke:cssVar('--series-blue')||'#2a78d6', 'stroke-width':2.5}, svg);
+  pts.forEach((p,i)=>{
+    el('circle', {cx:p[0], cy:p[1], r:4.5, fill:cssVar('--series-blue')||'#2a78d6'}, svg);
+    el('text', {x:p[0], y:p[1]-12, class:'dot-label', 'text-anchor':'middle'}, svg).textContent = vals[i].toFixed(1)+'%';
+    el('text', {x:p[0], y:h-6, class:'axis-tick', 'text-anchor':'middle'}, svg).textContent = years[i]+'년';
+  });
+}
+
+// ---------- Notes ----------
+function renderNotes(){
+  const ex = DATA.excluded;
+  const list = [
+    `세로축의 '월평균' 총판금액은 26년 1~8월 누적 총판금액 ÷ 8이며, 특정 월을 선택하면 해당 월의 실측 총판금액이 표시됩니다. 단위는 원본 파일(총판실적.xlsx)에 명시되어 있지 않아 원본 수치를 그대로 사용했습니다.`,
+    `M/S(경쟁력)는 경쟁력.xlsx의 '가전+IT' 통합 기준이 기본값이며, 상단 토글로 가전/IT 개별 기준으로, 기간 선택으로 1~8월 평균 또는 특정 월 기준으로 볼 수 있습니다.`,
+    `아래 지점은 두 원본 파일 간 매칭 문제로 이번 4사분면 분석에서 제외했습니다 (원인은 데이터로 확인되지 않음):`,
+    `　· 26년 총판실적 데이터가 없는 지점(24~25년까지만 존재): ${ex.no_2026_sales.join(', ')}`,
+    `　· 경쟁력 파일에는 있으나 총판실적 파일에 없는 지점: ${ex.no_ms_data.join(', ')}`,
+    `　· 26년 총판금액 누적이 사실상 0(-0.07)이고 M/S 데이터도 없는 지점: ${ex.near_zero.join(', ')}`,
+    `사분면 기준선은 선택된 기간·기준에서 분석대상 지점들의 평균값이며, 절대적 기준(예: M/S 50%)이 아니라 기간을 바꾸면 함께 움직입니다.`,
+    `일부 지점(나주점·인화점 등)은 특정 월의 IT 판매량이 매우 작아 IT M/S 값이 비정상적으로 크거나(100% 초과) 데이터가 없을 수 있습니다. 월별·IT 기준 수치는 참고용으로만 활용하고, 추세 판단은 '1~8월 평균' 기준을 우선하는 것을 권장합니다.`,
+    `M/S 전년동기 대비는 26년 선택 기간(누적 또는 해당 월)과 25년 동일 기간(1~8월 평균은 25년 월별 단순평균, 개별 월은 25년 같은 달)을 비교한 근사값입니다.`,
+  ];
+  document.getElementById('noteList').innerHTML = list.map(t=>`<li>${t}</li>`).join('');
+}
+
+// ---------- Render orchestration ----------
+function renderAll(){
+  const stats = computeStats(currentPeriod, currentCat);
+  document.getElementById('chartTitle').textContent = currentPeriod==='avg'
+    ? '지점별 경쟁력 × 월평균 총판금액'
+    : `지점별 경쟁력 × ${currentPeriod}월 총판금액`;
+  renderKPI(stats);
+  renderQuadCards(stats);
+  renderScatter(stats);
+  renderTable(stats);
+  renderShareTable(stats);
+}
+
+// ---------- Toggles ----------
+document.getElementById('catSeg').addEventListener('click', (e)=>{
+  const btn = e.target.closest('button');
+  if(!btn) return;
+  currentCat = btn.dataset.cat;
+  document.querySelectorAll('#catSeg button').forEach(b=>b.classList.toggle('active', b===btn));
+  renderAll();
+});
+document.getElementById('periodSeg').addEventListener('click', (e)=>{
+  const btn = e.target.closest('button');
+  if(!btn) return;
+  currentPeriod = btn.dataset.period;
+  document.querySelectorAll('#periodSeg button').forEach(b=>b.classList.toggle('active', b===btn));
+  renderAll();
+});
+
+renderAll();
+renderTrend();
+renderNotes();
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', ()=>{ renderAll(); renderTrend(); });
+</script>
+
+</body></html>
