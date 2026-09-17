@@ -532,6 +532,19 @@ function renderScatter(stats){
   const yDom = [y0,y1];
   const msMean = stats.msMean, salesMean = stats.salesMean;
 
+  // quadrant background zones (색상으로 4사분면 구분)
+  const qmx = xScale(msMean, xDom), qmy = yScale(salesMean, yDom);
+  const zoneTop = chartPad.t, zoneBottom = chartPad.t + plotH, zoneLeft = chartPad.l, zoneRight = chartW - chartPad.r;
+  const zones = [
+    {x:qmx, y:zoneTop, w:zoneRight-qmx, h:qmy-zoneTop, fill:cssVar('--good-bg')},       // 우량점 (우상단)
+    {x:zoneLeft, y:zoneTop, w:qmx-zoneLeft, h:qmy-zoneTop, fill:cssVar('--warning-bg')},// 기회점 (좌상단)
+    {x:zoneLeft, y:qmy, w:qmx-zoneLeft, h:zoneBottom-qmy, fill:cssVar('--critical-bg')},// 부진점 (좌하단)
+    {x:qmx, y:qmy, w:zoneRight-qmx, h:zoneBottom-qmy, fill:cssVar('--neutral-bg')},     // 틈새점 (우하단)
+  ];
+  zones.forEach(z=>{
+    if(z.w>0 && z.h>0) el('rect', {x:z.x, y:z.y, width:z.w, height:z.h, fill:z.fill}, svg);
+  });
+
   // gridlines (y)
   const yTicks = Math.round((y1-y0)/yStep);
   for(let i=0;i<=yTicks;i++){
